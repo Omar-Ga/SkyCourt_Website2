@@ -1,72 +1,22 @@
-import { useEffect, useRef, useState } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { ShoppingBag, Sparkles, MapPin, Coffee, Shield, Clock } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
+import { ShoppingBag, Sparkles, MapPin, Shield, Clock, Car } from 'lucide-react';
 
-const features = [
-  {
-    icon: ShoppingBag,
-    title: 'Curated Luxury',
-    description: 'Handpicked selection of the world\'s most prestigious brands, all under one magnificent roof.',
-  },
-  {
-    icon: Sparkles,
-    title: 'Exclusive Experience',
-    description: 'Private shopping suites and personalized services tailored to your distinguished taste.',
-  },
-  {
-    icon: MapPin,
-    title: 'Prime Location',
-    description: 'Situated in the heart of the city with panoramic views that redefine urban luxury.',
-  },
-  {
-    icon: Coffee,
-    title: 'Fine Dining',
-    description: 'Michelin-starred restaurants and artisanal cafes offering world-class culinary experiences.',
-  },
-  {
-    icon: Shield,
-    title: 'Concierge Service',
-    description: 'Dedicated personal shoppers and white-glove services for a seamless experience.',
-  },
-  {
-    icon: Clock,
-    title: 'Extended Hours',
-    description: 'Open late to accommodate your schedule with private appointment availability.',
-  },
-];
+const iconMap: { [key: string]: React.ElementType } = {
+  'Premium Shopping': ShoppingBag,
+  'Prime Location': MapPin,
+  'Always Open': Clock,
+  'Safe Environment': Shield,
+  'Modern Amenities': Sparkles,
+  'Convenient Parking': Car,
+};
 
 export default function Features() {
-  const containerRef = useRef<HTMLElement>(null);
-  const [activeFeature, setActiveFeature] = useState(0);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start end', 'end start'],
-  });
-
-  const imageY = useTransform(scrollYProgress, [0, 1], ['10%', '-10%']);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!containerRef.current) return;
-
-      const rect = containerRef.current.getBoundingClientRect();
-      const scrollProgress = Math.max(0, Math.min(1, (window.innerHeight / 2 - rect.top) / rect.height));
-      const newActive = Math.min(
-        features.length - 1,
-        Math.floor(scrollProgress * features.length)
-      );
-
-      setActiveFeature(newActive);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const { t } = useTranslation();
+  const features = t('features', { returnObjects: true }) as { title: string; description: string }[];
 
   return (
-    <section ref={containerRef} className="relative py-32 px-6" id="features">
+    <section className="relative py-32 px-6" id="features">
       <div className="max-w-7xl mx-auto">
         <motion.div
           className="text-center mb-24"
@@ -76,10 +26,10 @@ export default function Features() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="serif text-5xl md:text-7xl font-light text-black mb-6">
-            Why Choose SkyCourt
+            {t('why_choose_skycourt')}
           </h2>
           <p className="text-lg text-black/60 max-w-2xl mx-auto">
-            An unparalleled shopping destination where every detail is crafted for excellence.
+            {t('experience_shopping')}
           </p>
         </motion.div>
 
@@ -89,15 +39,13 @@ export default function Features() {
               src="https://images.pexels.com/photos/380769/pexels-photo-380769.jpeg?auto=compress&cs=tinysrgb&w=1920"
               alt="SkyCourt Interior"
               className="w-full h-full object-cover"
-              style={{ y: imageY }}
               loading="lazy"
             />
           </div>
 
           <div className="space-y-12 md:pt-20">
             {features.map((feature, index) => {
-              const Icon = feature.icon;
-              const isActive = activeFeature === index;
+              const Icon = iconMap[feature.title] || Sparkles;
 
               return (
                 <motion.div
@@ -108,16 +56,10 @@ export default function Features() {
                   viewport={{ once: true, margin: '-100px' }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                 >
-                  <div
-                    className={`transition-all duration-500 ${
-                      isActive ? 'opacity-100 scale-100' : 'opacity-40 scale-95'
-                    }`}
-                  >
+                  <div>
                     <div className="flex items-start gap-6">
                       <div
-                        className={`flex-shrink-0 w-14 h-14 rounded-full flex items-center justify-center transition-all duration-500 ${
-                          isActive ? 'bg-black text-white' : 'bg-black/10 text-black/40'
-                        }`}
+                        className={`flex-shrink-0 w-14 h-14 rounded-full flex items-center justify-center transition-all duration-500 bg-black text-white'}
                       >
                         <Icon className="w-6 h-6" strokeWidth={1.5} />
                       </div>

@@ -1,21 +1,9 @@
+import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 
-const brands = [
-  'GUCCI',
-  'PRADA',
-  'LOUIS VUITTON',
-  'CHANEL',
-  'HERMÈS',
-  'DIOR',
-  'VERSACE',
-  'BURBERRY',
-  'CARTIER',
-  'ROLEX',
-  'TIFFANY & CO.',
-  'BALENCIAGA',
-];
-
 export default function BrandMarquee() {
+  const { t } = useTranslation();
+  const brands = t('brands', { returnObjects: true }) as { name: string }[];
   const duplicatedBrands = [...brands, ...brands];
 
   return (
@@ -28,17 +16,8 @@ export default function BrandMarquee() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          Iconic Brands
+          {t('iconic_brands')}
         </motion.h2>
-        <motion.p
-          className="text-lg text-black/60 max-w-2xl mx-auto"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          Home to the world's most coveted luxury brands
-        </motion.p>
       </div>
 
       <div className="relative" style={{ perspective: '1000px' }}>
@@ -48,10 +27,10 @@ export default function BrandMarquee() {
         <motion.div
           className="flex gap-16 py-8"
           animate={{
-            x: [0, -50 * brands.length],
+            x: [0, -1 * (brands.length * 200)], // Approximate width
           }}
           transition={{
-            duration: 30,
+            duration: 60,
             ease: 'linear',
             repeat: Infinity,
           }}
@@ -78,7 +57,7 @@ export default function BrandMarquee() {
                 }}
               >
                 <span className="serif text-2xl font-medium text-black tracking-wider whitespace-nowrap">
-                  {brand}
+                  {brand.name}
                 </span>
               </div>
 
@@ -91,18 +70,6 @@ export default function BrandMarquee() {
             </motion.div>
           ))}
         </motion.div>
-      </div>
-
-      <div className="mt-16 text-center">
-        <motion.p
-          className="text-sm text-black/50 tracking-wider uppercase"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, delay: 0.5 }}
-        >
-          And many more exclusive boutiques
-        </motion.p>
       </div>
     </section>
   );

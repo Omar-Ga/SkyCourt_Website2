@@ -1,47 +1,18 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
-
-const stories = [
-  {
-    type: 'service',
-    title: 'Personal Shopping',
-    description: 'Experience bespoke styling with our expert fashion consultants who curate selections tailored to your unique taste and lifestyle.',
-    image: 'https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg?auto=compress&cs=tinysrgb&w=1920',
-  },
-  {
-    type: 'testimonial',
-    quote: 'SkyCourt has redefined luxury shopping for me. The attention to detail and personalized service is simply unmatched.',
-    author: 'Isabella Chen',
-    location: 'Singapore',
-  },
-  {
-    type: 'service',
-    title: 'Valet & Concierge',
-    description: 'Arrive in style with complimentary valet service and let our concierge team handle every detail of your visit.',
-    image: 'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1920',
-  },
-  {
-    type: 'testimonial',
-    quote: 'Every visit feels like a curated experience. The architecture, the brands, the service—everything is extraordinary.',
-    author: 'Marcus Ashford',
-    location: 'London',
-  },
-  {
-    type: 'service',
-    title: 'Private Events',
-    description: 'Host exclusive gatherings in our elegant event spaces, featuring panoramic city views and world-class catering.',
-    image: 'https://images.pexels.com/photos/169647/pexels-photo-169647.jpeg?auto=compress&cs=tinysrgb&w=1920',
-  },
-  {
-    type: 'testimonial',
-    quote: 'The perfect blend of sophistication and comfort. SkyCourt is where luxury truly lives.',
-    author: 'Sofia Rousseau',
-    location: 'Paris',
-  },
-];
+import { useTranslation } from 'react-i18next';
 
 export default function Stories() {
+  const { t } = useTranslation();
+  const services = t('services', { returnObjects: true }) as { title: string; description: string }[];
+  const testimonials = t('testimonials', { returnObjects: true }) as { name: string; rating: number; comment: string; location: string }[];
+
+  const stories = [
+    ...services.map(s => ({ ...s, type: 'service', image: 'https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg?auto=compress&cs=tinysrgb&w=1920' })),
+    ...testimonials.map(tm => ({ type: 'testimonial', quote: tm.comment, author: tm.name, location: tm.location }))
+  ];
+
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const nextSlide = () => {
@@ -64,17 +35,8 @@ export default function Stories() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          Stories
+          {t('stories_title')}
         </motion.h2>
-        <motion.p
-          className="text-lg text-black/60 max-w-2xl mx-auto"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          Services and experiences that elevate your visit
-        </motion.p>
       </div>
 
       <div className="relative h-[70vh] min-h-[600px]">
@@ -91,8 +53,8 @@ export default function Stories() {
               <div className="relative w-full h-full">
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-10" />
                 <img
-                  src={currentStory.image}
-                  alt={currentStory.title}
+                  src={(currentStory as any).image}
+                  alt={(currentStory as any).title}
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 z-20 flex flex-col justify-end p-12 md:p-20">
@@ -102,7 +64,7 @@ export default function Stories() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
                   >
-                    {currentStory.title}
+                    {(currentStory as any).title}
                   </motion.h3>
                   <motion.p
                     className="text-lg md:text-xl text-white/90 max-w-2xl leading-relaxed"
@@ -110,7 +72,7 @@ export default function Stories() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.4 }}
                   >
-                    {currentStory.description}
+                    {(currentStory as any).description}
                   </motion.p>
                 </div>
               </div>
@@ -130,7 +92,7 @@ export default function Stories() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.3 }}
                   >
-                    "{currentStory.quote}"
+                    "{(currentStory as any).quote}"
                   </motion.p>
                   <motion.div
                     initial={{ opacity: 0 }}
@@ -138,10 +100,10 @@ export default function Stories() {
                     transition={{ duration: 0.8, delay: 0.5 }}
                   >
                     <p className="text-xl text-white font-medium mb-2">
-                      {currentStory.author}
+                      {(currentStory as any).author}
                     </p>
                     <p className="text-sm text-white/60 tracking-wider uppercase">
-                      {currentStory.location}
+                      {(currentStory as any).location}
                     </p>
                   </motion.div>
                 </div>

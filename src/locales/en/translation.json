@@ -1,0 +1,55 @@
+{
+  "home": "Home",
+  "nav_brands": "Brands",
+  "nav_services": "Services",
+  "nav_location": "Location",
+  "nav_contact": "Contact",
+  "why_choose_skycourt": "Why Choose SkyCourt?",
+  "experience_shopping": "Experience shopping like never before with our world-class amenities and services",
+  "features": [
+    { "title": "Premium Shopping", "description": "Discover over 50 premium brands and local favorites all under one roof" },
+    { "title": "Prime Location", "description": "Strategically located in one of the city's most luxurious and accessible districts" },
+    { "title": "Always Open", "description": "Experience SkyCourt 24/7, ensuring convenience at any time" },
+    { "title": "Safe Environment", "description": "24/7 security and family-friendly atmosphere for peace of mind" },
+    { "title": "Modern Amenities", "description": "Enjoy a comfortable and convenient experience with our modern facilities" },
+    { "title": "Convenient Parking", "description": "Dedicated and easily accessible parking spaces for all our visitors" }
+  ],
+  "rotating_texts": [
+    "50+ premium shops and brands.",
+    "all your favorite brands.",
+    "unforgettable moments."
+  ],
+  "discover": "Discover",
+  "iconic_brands": "Iconic brands at SkyCourt",
+  "brands": [
+    { "name": "Ammar Auto" }, { "name": "B-Tech" }, { "name": "Balbaa Village" }, { "name": "Blaban" }, { "name": "Bright Store" }, { "name": "Dream 2000" }, { "name": "Fathalla Market" }, { "name": "Ftirty" }, { "name": "Donia El Gambary" }, { "name": "Hamed El Basiony" }, { "name": "Hans" }, { "name": "Hardees" }, { "name": "KFC" }, { "name": "Khatab" }, { "name": "Pizza Hut" }, { "name": "Ragab Perfumes" }, { "name": "Raya" }, { "name": "Smart Furniture" }, { "name": "El Tahrir" }, { "name": "Zizo & Lavish" }
+  ],
+  "services": [
+    { "title": "Safe & Fun Kids Area", "description": "Enjoy peace of mind with our fully enclosed and supervised play space for your children." },
+    { "title": "24-Hour Supermarket", "description": "All your needs, anytime. Our supermarket is open 24/7 for your convenience." },
+    { "title": "Cafes & Eateries", "description": "From a quick coffee to a relaxing lunch, choose from our diverse selection of cafes." }
+  ],
+  "testimonials": [
+    { "name": "Sarah Ahmed", "rating": 5, "comment": "SkyCourt has everything I need in one place. The kids area is fantastic and the variety of stores is impressive!", "location": "Cairo" },
+    { "name": "Mohamed Hassan", "rating": 5, "comment": "Great shopping experience with excellent food options. The 24-hour supermarket is incredibly convenient.", "location": "Giza" },
+    { "name": "Fatima Ali", "rating": 5, "comment": "Clean, safe, and well-organized. Perfect for family shopping trips. The parking is always available too!", "location": "Alexandria" }
+  ],
+  "stories_title": "Stories",
+  "visit_us_today": "Visit Us Today",
+  "find_us_in_the_heart": "Find us in the heart of the city - easily accessible by car or public transport",
+  "address": "Address",
+  "address_details": "sidi abdelrehman - al sahel al shamaly<br />alexandria road - the 137 kilo road",
+  "opening_hours": "Opening Hours",
+  "opening_hours_details": "Open 24/7 Saturday through Friday",
+  "email": "Email",
+  "email_details": "info@skycourt.com",
+  "interactive_map_coming_soon": "Interactive Map Coming Soon",
+  "explore": "Explore",
+  "connect": "Connect",
+  "email_link": "Email",
+  "call_link": "Call",
+  "careers_link": "Careers",
+  "copyright": "&copy; 2025 SkyCourt. All rights reserved.",
+  "privacy_policy": "Privacy Policy",
+  "terms_of_service": "Terms of Service"
+}

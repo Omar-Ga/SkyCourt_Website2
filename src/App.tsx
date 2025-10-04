@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import SmoothScroll from './components/SmoothScroll';
 import CustomCursor from './components/CustomCursor';
 import Header from './components/Header';
@@ -10,6 +12,12 @@ import Location from './components/Location';
 import Footer from './components/Footer';
 
 function App() {
+  const { i18n } = useTranslation();
+
+  useEffect(() => {
+    document.documentElement.dir = i18n.dir();
+  }, [i18n, i18n.language]);
+
   return (
     <SmoothScroll>
       <div className="animated-gradient min-h-screen">

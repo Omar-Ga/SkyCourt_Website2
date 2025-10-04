@@ -1,15 +1,10 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-
-const phrases = [
-  'premium shops and brands.',
-  'all your favorite brands.',
-  'world-class dining experiences.',
-  'exclusive luxury boutiques.',
-  'unparalleled service.',
-];
+import { useTranslation } from 'react-i18next';
 
 export default function RotatingHeadline() {
+  const { t } = useTranslation();
+  const phrases = t('rotating_texts', { returnObjects: true }) as string[];
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
 
   useEffect(() => {
@@ -18,68 +13,24 @@ export default function RotatingHeadline() {
     }, 3500);
 
     return () => clearInterval(interval);
-  }, []);
-
-  const currentPhrase = phrases[currentPhraseIndex];
-  const words = currentPhrase.split(' ');
+  }, [phrases.length]);
 
   return (
     <section className="relative py-32 px-6 overflow-hidden">
       <div className="max-w-5xl mx-auto text-center">
         <h2 className="serif text-4xl md:text-6xl lg:text-7xl font-light text-black leading-tight">
-          Discover{' '}
-          <span className="inline-block relative" style={{ minWidth: '400px' }}>
+          {t('discover')}{' '}
+          <span className="inline-block relative w-full md:w-auto" style={{ minWidth: '400px' }}>
             <AnimatePresence mode="wait">
               <motion.span
                 key={currentPhraseIndex}
-                className="inline-flex flex-wrap justify-center gap-x-3"
-                initial={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.3 }}
+                className="inline-block"
+                initial={{ y: 50, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: -50, opacity: 0 }}
+                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
               >
-                {words.map((word, wordIndex) => (
-                  <span key={wordIndex} className="inline-block overflow-hidden">
-                    <AnimatePresence mode="wait">
-                      <motion.span
-                        key={`${currentPhraseIndex}-${wordIndex}`}
-                        className="inline-flex"
-                        initial={{ y: 100, opacity: 0, rotateX: -90 }}
-                        animate={{ y: 0, opacity: 1, rotateX: 0 }}
-                        exit={{ y: -100, opacity: 0, rotateX: 90 }}
-                        transition={{
-                          duration: 0.5,
-                          delay: wordIndex * 0.1,
-                          ease: [0.22, 1, 0.36, 1],
-                        }}
-                        style={{
-                          transformStyle: 'preserve-3d',
-                          transformOrigin: 'center center',
-                        }}
-                      >
-                        {word.split('').map((char, charIndex) => (
-                          <motion.span
-                            key={charIndex}
-                            className="inline-block"
-                            initial={{ y: 100, opacity: 0, rotateX: -90 }}
-                            animate={{ y: 0, opacity: 1, rotateX: 0 }}
-                            exit={{ y: -100, opacity: 0, rotateX: 90 }}
-                            transition={{
-                              duration: 0.4,
-                              delay: wordIndex * 0.1 + charIndex * 0.02,
-                              ease: [0.22, 1, 0.36, 1],
-                            }}
-                            style={{
-                              transformStyle: 'preserve-3d',
-                              display: 'inline-block',
-                            }}
-                          >
-                            {char}
-                          </motion.span>
-                        ))}
-                      </motion.span>
-                    </AnimatePresence>
-                  </span>
-                ))}
+                {phrases[currentPhraseIndex]}
               </motion.span>
             </AnimatePresence>
           </span>

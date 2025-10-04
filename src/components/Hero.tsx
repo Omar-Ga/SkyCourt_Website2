@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 
 export default function Hero() {
+  const { t } = useTranslation();
   const [textVisible, setTextVisible] = useState(false);
 
   useEffect(() => {
@@ -11,7 +12,7 @@ export default function Hero() {
   }, []);
 
   const headline = "SKYCOURT";
-  const tagline = "Where Luxury Meets the Horizon";
+  const tagline = t('experience_shopping');
 
   return (
     <section className="relative w-full h-screen overflow-hidden">

@@ -1,105 +1,76 @@
+import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import { MapPin, Clock, Mail } from 'lucide-react';
-import LightRays from './LightRays';
 
 export default function Location() {
+  const { t } = useTranslation();
+
+  const infoItems = [
+    {
+      label: t('address'),
+      value: t('address_details'),
+    },
+    {
+      label: t('opening_hours'),
+      value: t('opening_hours_details'),
+    },
+    {
+      label: t('email'),
+      value: t('email_details'),
+    },
+  ];
+
   return (
-    <section className="relative py-32 px-6 bg-neutral-900 overflow-hidden" id="location">
-      <LightRays />
-
-      <div className="relative z-10 max-w-7xl mx-auto">
-        <motion.div
-          className="text-center mb-20"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <h2 className="serif text-5xl md:text-7xl font-light text-white mb-6">
-            Visit Us
-          </h2>
-          <p className="text-lg text-white/70 max-w-2xl mx-auto">
-            Experience luxury at the pinnacle of the city
-          </p>
-        </motion.div>
-
-        <div className="grid md:grid-cols-2 gap-16 items-center">
-          <motion.div
-            className="space-y-10"
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+    <section className="relative py-32 px-6 bg-neutral-900 text-white" id="location">
+      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+        <div className="md:pr-12">
+          <motion.h2
+            className="serif text-5xl md:text-7xl font-light mb-6"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="group">
-              <div className="flex items-start gap-4 mb-4">
-                <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-6 h-6 text-white" strokeWidth={1.5} />
-                </div>
-                <div>
-                  <h3 className="serif text-2xl text-white mb-2">Address</h3>
-                  <p className="text-white/70 leading-relaxed">
-                    One Sky Plaza<br />
-                    Tower A, Level 88<br />
-                    Financial District<br />
-                    Singapore 018956
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="group">
-              <div className="flex items-start gap-4 mb-4">
-                <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center flex-shrink-0">
-                  <Clock className="w-6 h-6 text-white" strokeWidth={1.5} />
-                </div>
-                <div>
-                  <h3 className="serif text-2xl text-white mb-2">Hours</h3>
-                  <p className="text-white/70 leading-relaxed">
-                    Monday - Saturday: 10:00 AM - 10:00 PM<br />
-                    Sunday: 11:00 AM - 8:00 PM<br />
-                    <span className="text-sm text-white/50 mt-2 inline-block">
-                      Private appointments available 24/7
-                    </span>
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="group">
-              <div className="flex items-start gap-4 mb-4">
-                <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center flex-shrink-0">
-                  <Mail className="w-6 h-6 text-white" strokeWidth={1.5} />
-                </div>
-                <div>
-                  <h3 className="serif text-2xl text-white mb-2">Contact</h3>
-                  <a
-                    href="mailto:concierge@skycourt.com"
-                    className="text-white/70 hover:text-white transition-colors"
-                  >
-                    concierge@skycourt.com
-                  </a>
-                  <p className="text-white/70 mt-1">+65 6123 4567</p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          <motion.div
-            className="relative h-[500px] rounded-2xl overflow-hidden bg-white/5 backdrop-blur-sm border border-white/10"
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            {t('visit_us_today')}
+          </motion.h2>
+          <motion.p
+            className="text-lg text-white/70 max-w-xl mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-center">
-                <MapPin className="w-16 h-16 text-white/30 mx-auto mb-4" strokeWidth={1} />
-                <p className="text-white/50 text-sm">Interactive Map</p>
-              </div>
-            </div>
-          </motion.div>
+            {t('find_us_in_the_heart')}
+          </motion.p>
+
+          <div className="space-y-8">
+            {infoItems.map((item, index) => (
+              <motion.div
+                key={item.label}
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: 0.4 + index * 0.15 }}
+              >
+                <p className="text-sm text-white/50 tracking-wider uppercase mb-2">
+                  {item.label}
+                </p>
+                <p className="text-lg md:text-xl" dangerouslySetInnerHTML={{ __html: item.value }} />
+              </motion.div>
+            ))}
+          </div>
         </div>
+
+        <motion.div
+          className="h-[500px] bg-neutral-800 rounded-2xl flex items-center justify-center"
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <p className="text-white/40 serif text-2xl">
+            {t('interactive_map_coming_soon')}
+          </p>
+        </motion.div>
       </div>
     </section>
   );

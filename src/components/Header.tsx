@@ -1,44 +1,30 @@
-import { useEffect, useState } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { Building2, Menu, X } from 'lucide-react';
 
 export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const { t, i18n } = useTranslation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { scrollY } = useScroll();
 
-  const logoScale = useTransform(scrollY, [0, 100], [1, 0.8]);
-  const headerOpacity = useTransform(scrollY, [0, 100], [0, 1]);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 100);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const toggleLanguage = () => {
+    const newLang = i18n.language === 'en' ? 'ar' : 'en';
+    i18n.changeLanguage(newLang);
+  };
 
   const navItems = [
-    { label: 'Brands', href: '#brands' },
-    { label: 'Services', href: '#services' },
-    { label: 'Location', href: '#location' },
-    { label: 'Contact', href: '#contact' },
+    { label: t('nav_brands'), href: '#brands' },
+    { label: t('nav_services'), href: '#services' },
+    { label: t('nav_location'), href: '#location' },
+    { label: t('nav_contact'), href: '#contact' },
   ];
 
   return (
     <>
       <motion.header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled ? 'py-4' : 'py-6'
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-4`}
         initial={{ y: 0 }}
       >
         <motion.div
-          className={`absolute inset-0 transition-opacity duration-500 ${
-            isScrolled ? 'opacity-100' : 'opacity-0'
-          }`}
-          style={{ opacity: headerOpacity }}
+          className={`absolute inset-0 transition-opacity duration-500 opacity-100`}
         >
           <div className="frosted-glass h-full border-b border-black/5" />
         </motion.div>
@@ -47,7 +33,6 @@ export default function Header() {
           <motion.a
             href="#"
             className="flex items-center gap-3 group"
-            style={{ scale: isScrolled ? logoScale : 1 }}
           >
             <Building2 className="w-8 h-8 text-black" strokeWidth={1.5} />
             <span className="serif text-2xl font-semibold text-black tracking-wide">
@@ -69,6 +54,12 @@ export default function Header() {
                 <span className="absolute -bottom-1 left-0 w-0 h-px bg-black transition-all duration-300 group-hover:w-full" />
               </motion.a>
             ))}
+            <button
+              onClick={toggleLanguage}
+              className="text-black/80 hover:text-black text-sm font-medium tracking-wide relative group transition-colors"
+            >
+              {i18n.language === 'en' ? 'AR' : 'EN'}
+            </button>
           </nav>
 
           <button
@@ -99,6 +90,12 @@ export default function Header() {
                 {item.label}
               </a>
             ))}
+            <button
+              onClick={() => { toggleLanguage(); setIsMobileMenuOpen(false); }}
+              className="serif text-3xl text-black/80 hover:text-black transition-colors"
+            >
+              {i18n.language === 'en' ? 'AR' : 'EN'}
+            </button>
           </nav>
         </motion.div>
       )}

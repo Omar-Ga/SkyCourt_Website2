@@ -1,7 +1,10 @@
+import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { Building2, Instagram, Facebook, Twitter } from 'lucide-react';
 
 export default function Footer() {
+  const { t } = useTranslation();
+
   const socialLinks = [
     { icon: Instagram, label: 'Instagram', href: '#' },
     { icon: Facebook, label: 'Facebook', href: '#' },
@@ -28,8 +31,7 @@ export default function Footer() {
               <span className="serif text-3xl font-semibold tracking-wide">SkyCourt</span>
             </div>
             <p className="text-white/60 leading-relaxed max-w-md mb-8">
-              Redefining luxury retail with an unparalleled collection of the world's finest brands
-              and an experience that transcends traditional shopping.
+              {t('experience_shopping')}
             </p>
             <div className="flex gap-4">
               {socialLinks.map((social) => {
@@ -58,45 +60,45 @@ export default function Footer() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div>
-              <h3 className="text-sm uppercase tracking-wider font-medium mb-4">Explore</h3>
+              <h3 className="text-sm uppercase tracking-wider font-medium mb-4">{t('explore')}</h3>
               <ul className="space-y-3">
                 <li>
                   <a href="#brands" className="text-white/60 hover:text-white transition-colors">
-                    Brands
+                    {t('nav_brands')}
                   </a>
                 </li>
                 <li>
                   <a href="#services" className="text-white/60 hover:text-white transition-colors">
-                    Services
+                    {t('nav_services')}
                   </a>
                 </li>
                 <li>
                   <a href="#location" className="text-white/60 hover:text-white transition-colors">
-                    Location
+                    {t('nav_location')}
                   </a>
                 </li>
               </ul>
             </div>
 
             <div>
-              <h3 className="text-sm uppercase tracking-wider font-medium mb-4">Connect</h3>
+              <h3 className="text-sm uppercase tracking-wider font-medium mb-4">{t('connect')}</h3>
               <ul className="space-y-3">
                 <li>
                   <a
-                    href="mailto:concierge@skycourt.com"
+                    href={`mailto:${t('email_details')}`}
                     className="text-white/60 hover:text-white transition-colors"
                   >
-                    Email
-                  </a>
-                </li>
-                <li>
-                  <a href="tel:+6561234567" className="text-white/60 hover:text-white transition-colors">
-                    Call
+                    {t('email_link')}
                   </a>
                 </li>
                 <li>
                   <a href="#" className="text-white/60 hover:text-white transition-colors">
-                    Careers
+                    {t('call_link')}
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="text-white/60 hover:text-white transition-colors">
+                    {t('careers_link')}
                   </a>
                 </li>
               </ul>
@@ -112,14 +114,14 @@ export default function Footer() {
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           <p className="text-white/40 text-sm">
-            &copy; 2025 SkyCourt. All rights reserved.
+            {t('copyright')}
           </p>
           <div className="flex gap-6">
             <a href="#" className="text-white/40 hover:text-white text-sm transition-colors">
-              Privacy Policy
+              {t('privacy_policy')}
             </a>
             <a href="#" className="text-white/40 hover:text-white text-sm transition-colors">
-              Terms of Service
+              {t('terms_of_service')}
             </a>
           </div>
         </motion.div>
