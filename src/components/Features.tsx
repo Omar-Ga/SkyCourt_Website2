@@ -140,7 +140,7 @@ export default function Features() {
         <div className="grid md:grid-cols-2 gap-12 items-start">
           <div className="h-[300px] md:h-[600px] overflow-hidden rounded-2xl md:sticky md:top-32">
             <motion.img
-              src="https://images.pexels.com/photos/380769/pexels-photo-380769.jpeg?auto=compress&cs=tinysrgb&w=1920"
+              src="/home_images/entrance darker.webp"
               alt="SkyCourt Interior"
               className="w-full h-full object-cover"
               loading="lazy"

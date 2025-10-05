@@ -2,7 +2,8 @@ import { useState, useEffect, forwardRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
-import { RotatingText } from '@/components/ui/shadcn-io/rotating-text';
+import { RotatingText } from './ui/shadcn-io/rotating-text';
+import { Link } from 'react-router-dom';
 
 const Hero = forwardRef<HTMLElement>((_, ref) => {
   const { t } = useTranslation();
@@ -15,25 +16,40 @@ const Hero = forwardRef<HTMLElement>((_, ref) => {
 
   const headline = "SKYCOURT";
   const navItems = [
-    { label: t('home'), href: '#' },
-    { label: t('nav_brands'), href: '#brands' },
-    { label: t('nav_services'), href: '#services' },
-    { label: t('nav_location'), href: '#location' },
-    { label: t('nav_contact'), href: '#contact' },
+    { label: t('nav_home'), href: '/', isRoute: true },
+    { label: t('nav_brands'), href: '#brands', isRoute: false },
+    { label: t('nav_services'), href: '#services', isRoute: false },
+    { label: t('nav_dining'), href: '/dining', isRoute: true },
+    { label: t('nav_location'), href: '#location', isRoute: false },
+    { label: t('nav_contact'), href: '#contact', isRoute: false },
   ];
+
+  const NavLink = ({ item }: { item: typeof navItems[0] }) => {
+    const commonProps = {
+      className: "text-white hover:text-white text-sm font-medium tracking-wide transition-colors",
+    };
+
+    if (item.isRoute) {
+      return (
+        <Link to={item.href} {...commonProps}>
+          {item.label}
+        </Link>
+      );
+    }
+
+    return (
+      <a href={item.href} {...commonProps}>
+        {item.label}
+      </a>
+    );
+  };
 
   return (
     <section ref={ref} className="relative w-full h-screen overflow-hidden">
       <div className="absolute top-0 left-0 right-0 z-30 flex justify-center pt-8">
         <nav className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              className="text-white hover:text-white text-sm font-medium tracking-wide transition-colors"
-            >
-              {item.label}
-            </a>
+            <NavLink key={item.label} item={item} />
           ))}
         </nav>
       </div>

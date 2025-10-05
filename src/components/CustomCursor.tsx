@@ -2,14 +2,6 @@ import { useEffect, useState } from 'react';
 import { motion, useSpring, useMotionValue } from 'framer-motion';
 
 export default function CustomCursor() {
-  // Check if the device is likely a mobile device (no fine pointer)
-  const isMobile = typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches;
-
-  // If it's a mobile device, return null to disable the cursor
-  if (isMobile) {
-    return null;
-  }
-
   const [isPointer, setIsPointer] = useState(false);
   const [isPressed, setIsPressed] = useState(false);
 
@@ -21,6 +13,9 @@ export default function CustomCursor() {
   const cursorYSpring = useSpring(cursorY, springConfig);
 
   useEffect(() => {
+    const isMobile = typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches;
+    if (isMobile) return;
+
     const moveCursor = (e: MouseEvent) => {
       cursorX.set(e.clientX - 8);
       cursorY.set(e.clientY - 8);
@@ -43,6 +38,11 @@ export default function CustomCursor() {
       window.removeEventListener('mouseup', handleMouseUp);
     };
   }, [cursorX, cursorY]);
+
+  const isMobile = typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches;
+  if (isMobile) {
+    return null;
+  }
 
   return (
     <>

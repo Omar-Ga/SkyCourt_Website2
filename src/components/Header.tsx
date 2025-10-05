@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { Building2, Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function Header({ show }: { show: boolean }) {
   const { t, i18n } = useTranslation();
@@ -13,11 +14,44 @@ export default function Header({ show }: { show: boolean }) {
   };
 
   const navItems = [
-    { label: t('nav_brands'), href: '#brands' },
-    { label: t('nav_services'), href: '#services' },
-    { label: t('nav_location'), href: '#location' },
-    { label: t('nav_contact'), href: '#contact' },
+    { label: t('nav_home'), href: '/', isRoute: true },
+    { label: t('nav_brands'), href: '#brands', isRoute: false },
+    { label: t('nav_services'), href: '#services', isRoute: false },
+    { label: t('nav_dining'), href: '/dining', isRoute: true },
+    { label: t('nav_location'), href: '#location', isRoute: false },
+    { label: t('nav_contact'), href: '#contact', isRoute: false },
   ];
+
+  const NavLink = ({ item, index }: { item: typeof navItems[0], index: number }) => {
+    const commonProps = {
+      className: "text-black/80 hover:text-black text-sm font-medium tracking-wide relative group transition-colors",
+      initial: { opacity: 0, y: -10 },
+      animate: { opacity: 1, y: 0 },
+      transition: { delay: index * 0.1 },
+    };
+
+    if (item.isRoute) {
+      return (
+        <motion.div {...commonProps}>
+          <Link to={item.href}>
+            {item.label}
+            <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full" />
+          </Link>
+        </motion.div>
+      );
+    }
+
+    return (
+      <motion.a
+        key={item.label}
+        href={item.href}
+        {...commonProps}
+      >
+        {item.label}
+        <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full" />
+      </motion.a>
+    );
+  };
 
   return (
     <>
@@ -38,7 +72,7 @@ export default function Header({ show }: { show: boolean }) {
 
         <div className="relative max-w-7xl mx-auto px-6 flex items-center justify-between">
           <motion.a
-            href="#"
+            href="/" // Changed to '/' for home route
             className="flex items-center gap-3 group"
           >
             <Building2 className="w-8 h-8 text-black" strokeWidth={1.5} />
@@ -49,17 +83,7 @@ export default function Header({ show }: { show: boolean }) {
 
           <nav className="hidden md:flex items-center gap-8">
             {navItems.map((item, index) => (
-              <motion.a
-                key={item.label}
-                href={item.href}
-                className="text-black/80 hover:text-black text-sm font-medium tracking-wide relative group transition-colors"
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-              >
-                {item.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full" />
-              </motion.a>
+              <NavLink key={item.label} item={item} index={index} />
             ))}
             <button
               onClick={toggleLanguage}
@@ -88,14 +112,25 @@ export default function Header({ show }: { show: boolean }) {
         >
           <nav className="flex flex-col items-center gap-8">
             {navItems.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className="serif text-3xl text-black/80 hover:text-black transition-colors"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {item.label}
-              </a>
+              item.isRoute ? (
+                <Link
+                  key={item.label}
+                  to={item.href}
+                  className="serif text-3xl text-black/80 hover:text-black transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  className="serif text-3xl text-black/80 hover:text-black transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {item.label}
+                </a>
+              )
             ))}
             <button
               onClick={() => { toggleLanguage(); setIsMobileMenuOpen(false); }}
