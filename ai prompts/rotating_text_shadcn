@@ -1,0 +1,60 @@
+Installation
+npm
+
+npx shadcn@latest add https://www.shadcn.io/registry/rotating-text.json
+npx shadcn@latest add https://www.shadcn.io/registry/rotating-text.json
+
+Usage
+
+import { RotatingText } from "@/components/text/rotating-text";
+<RotatingText 
+  text={["Build faster", "Ship better", "Scale easier"]}
+  duration={3000}
+  transition={{ duration: 0.5, ease: "easeInOut" }}
+/>
+Why most rotating text implementations suck
+Most developers use opacity transitions (text just fades, looks weak) or horizontal sliding (breaks layout when text lengths differ). Others try CSS animations with transform3d but end up with stuttering or weird timing issues in their React components.
+
+This React component uses vertical sliding with AnimatePresence in "wait" mode—the old text slides up and out while the new text slides up from below. We set overflow: hidden on the container so the sliding happens invisibly, maintaining clean boundaries. Built for modern JavaScript development workflows with full TypeScript support.
+
+The timing is crucial: 2-3 seconds between rotations gives users time to read, 0.3-0.5s transition keeps it snappy. Too fast and it's distracting, too slow and it feels broken. We handle the interval cleanup automatically so you don't get memory leaks in your Next.js applications.
+
+Features
+Vertical slide transitions that don't break layouts in React applications
+Automatic rotation timing with proper cleanup for Next.js projects
+Container overflow handling for clean text boundaries
+Support for single text or arrays of rotating phrases
+Complete TypeScript support with full type definitions and IntelliSense
+Works seamlessly with shadcn/ui design system and theme colors
+Free open source component that respects reduced motion preferences
+Built for modern JavaScript frameworks with performance optimization
+API Reference
+RotatingText
+Animated text rotation with vertical slide transitions.
+
+Prop	Type	Default	Description
+text	string | string[]	required	Text or array of texts to rotate
+duration	number	2000	Time between rotations (ms)
+transition	Transition	{ duration: 0.3, ease: 'easeOut' }	Slide animation timing
+y	number	-50	Vertical slide distance
+containerClassName	string	-	Container CSS classes
+className	string	-	Text element CSS classes
+...props	HTMLAttributes<HTMLDivElement>	-	Standard div attributes
+Timing Guidelines
+Optimal rotation timing for different use cases:
+
+Use Case	Duration	Transition	Reasoning
+Hero taglines	3000ms	0.4s	Users need time to read
+Feature highlights	2500ms	0.3s	Marketing pace
+Loading states	1500ms	0.2s	Keep attention during wait
+Subtle accents	4000ms	0.5s	Don't compete with content
+Common gotchas
+Layout jumps during rotation: Different text lengths cause container size changes in React applications. Set a fixed width or min-width on the container, or use consistent text lengths for stable layouts.
+
+Rotation stops after unmounting: This React component cleans up intervals automatically, but if you're conditionally rendering in Next.js, make sure the parent component stays mounted.
+
+Text slides wrong direction: The y prop controls slide direction with full TypeScript support. Negative values slide up (default), positive values slide down. Match your design intent.
+
+Animation feels choppy: Default 300ms transition works for most React applications. For longer text, increase to 400-500ms. For quick rotations, decrease to 200ms but not lower in your JavaScript implementations.
+
+Memory leaks with rapid remounts: The component handles cleanup automatically, but avoid rapidly mounting/unmounting rotating text components in React. Cache them or use conditional visibility instead for better performance.

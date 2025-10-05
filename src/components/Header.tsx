@@ -1,7 +1,9 @@
+import { useState } from 'react';
+import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { Building2, Menu, X } from 'lucide-react';
 
-export default function Header() {
+export default function Header({ show }: { show: boolean }) {
   const { t, i18n } = useTranslation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -20,11 +22,16 @@ export default function Header() {
   return (
     <>
       <motion.header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-4`}
-        initial={{ y: 0 }}
+        className={`fixed top-0 left-0 right-0 z-50 py-4`}
+        initial={{ y: -100, opacity: 0 }}
+        animate={{
+          y: show ? 0 : -100,
+          opacity: show ? 1 : 0,
+        }}
+        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
       >
         <motion.div
-          className={`absolute inset-0 transition-opacity duration-500 opacity-100`}
+          className={`absolute inset-0`}
         >
           <div className="frosted-glass h-full border-b border-black/5" />
         </motion.div>
@@ -51,7 +58,7 @@ export default function Header() {
                 transition={{ delay: index * 0.1 }}
               >
                 {item.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-px bg-black transition-all duration-300 group-hover:w-full" />
+                <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full" />
               </motion.a>
             ))}
             <button

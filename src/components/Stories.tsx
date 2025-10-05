@@ -2,15 +2,32 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { useDrag } from '@use-gesture/react';
+
+type Service = {
+  type: 'service';
+  title: string;
+  description: string;
+  image: string;
+};
+
+type Testimonial = {
+  type: 'testimonial';
+  quote: string;
+  author: string;
+  location: string;
+};
+
+type Story = Service | Testimonial;
 
 export default function Stories() {
   const { t } = useTranslation();
   const services = t('services', { returnObjects: true }) as { title: string; description: string }[];
   const testimonials = t('testimonials', { returnObjects: true }) as { name: string; rating: number; comment: string; location: string }[];
 
-  const stories = [
-    ...services.map(s => ({ ...s, type: 'service', image: 'https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg?auto=compress&cs=tinysrgb&w=1920' })),
-    ...testimonials.map(tm => ({ type: 'testimonial', quote: tm.comment, author: tm.name, location: tm.location }))
+  const stories: Story[] = [
+    ...services.map(s => ({ ...s, type: 'service' as const, image: 'https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg?auto=compress&cs=tinysrgb&w=1920' })),
+    ...testimonials.map(tm => ({ type: 'testimonial' as const, quote: tm.comment, author: tm.name, location: tm.location }))
   ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -25,6 +42,20 @@ export default function Stories() {
 
   const currentStory = stories[currentSlide];
 
+  // 1. Bind drag handler to the carousel container
+  const bind = useDrag(({ swipe: [swipeX] }) => {
+    if (swipeX === 1) {
+      prevSlide();
+    } else if (swipeX === -1) {
+      nextSlide();
+    }
+  }, {
+    // Only allow horizontal drag
+    axis: 'x',
+    // Prevent vertical scrolling from being blocked
+    filterTaps: true,
+  });
+
   return (
     <section className="relative py-24 overflow-hidden" id="services">
       <div className="max-w-7xl mx-auto px-6 mb-16 text-center">
@@ -32,18 +63,19 @@ export default function Stories() {
           className="serif text-5xl md:text-7xl font-light text-black mb-6"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{}}
           transition={{ duration: 0.8 }}
         >
           {t('stories_title')}
         </motion.h2>
       </div>
 
-      <div className="relative h-[70vh] min-h-[600px]">
+      {/* 2. Apply drag binding to the main carousel area */}
+      <div className="relative h-[70vh] min-h-[600px]" {...bind()}>
         <AnimatePresence mode="wait">
           <motion.div
             key={currentSlide}
-            className="absolute inset-0"
+            className="absolute inset-0 cursor-grab active:cursor-grabbing"
             initial={{ opacity: 0, scale: 1.05 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
@@ -53,8 +85,8 @@ export default function Stories() {
               <div className="relative w-full h-full">
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-10" />
                 <img
-                  src={(currentStory as any).image}
-                  alt={(currentStory as any).title}
+                  src={currentStory.image}
+                  alt={currentStory.title}
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 z-20 flex flex-col justify-end p-12 md:p-20">
@@ -64,7 +96,7 @@ export default function Stories() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
                   >
-                    {(currentStory as any).title}
+                    {currentStory.title}
                   </motion.h3>
                   <motion.p
                     className="text-lg md:text-xl text-white/90 max-w-2xl leading-relaxed"
@@ -72,7 +104,7 @@ export default function Stories() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.4 }}
                   >
-                    {(currentStory as any).description}
+                    {currentStory.description}
                   </motion.p>
                 </div>
               </div>
@@ -84,15 +116,16 @@ export default function Stories() {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
                   >
-                    <Quote className="w-16 h-16 text-white/20 mx-auto mb-8" />
+                    <Quote className="w-16 h-16 text-primary/20 mx-auto mb-8" />
                   </motion.div>
                   <motion.p
-                    className="serif text-3xl md:text-5xl font-light text-white mb-12 leading-relaxed"
+                    className="serif text-3xl md:text-5xl font-light text-white mb-12"
+                    style={{ lineHeight: 1.8 }}
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.3 }}
                   >
-                    "{(currentStory as any).quote}"
+                    "{currentStory.quote}"
                   </motion.p>
                   <motion.div
                     initial={{ opacity: 0 }}
@@ -100,10 +133,10 @@ export default function Stories() {
                     transition={{ duration: 0.8, delay: 0.5 }}
                   >
                     <p className="text-xl text-white font-medium mb-2">
-                      {(currentStory as any).author}
+                      {currentStory.author}
                     </p>
                     <p className="text-sm text-white/60 tracking-wider uppercase">
-                      {(currentStory as any).location}
+                      {currentStory.location}
                     </p>
                   </motion.div>
                 </div>
@@ -112,35 +145,38 @@ export default function Stories() {
           </motion.div>
         </AnimatePresence>
 
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex items-center gap-6">
+        <div className="absolute inset-0 z-30 flex items-center justify-between px-6 md:px-12 pointer-events-none">
+          {/* Previous Button (Mobile/Desktop) */}
           <button
             onClick={prevSlide}
-            className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300 hover:scale-110 active:scale-95"
+            className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-primary/20 transition-all duration-300 hover:scale-110 active:scale-95 pointer-events-auto"
             aria-label="Previous slide"
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
 
-          <div className="flex gap-2">
-            {stories.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentSlide(index)}
-                className={`h-1 rounded-full transition-all duration-300 ${
-                  index === currentSlide ? 'w-8 bg-white' : 'w-1 bg-white/40'
-                }`}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
-          </div>
-
+          {/* Next Button (Mobile/Desktop) */}
           <button
             onClick={nextSlide}
-            className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300 hover:scale-110 active:scale-95"
+            className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-primary/20 transition-all duration-300 hover:scale-110 active:scale-95 pointer-events-auto"
             aria-label="Next slide"
           >
             <ChevronRight className="w-6 h-6" />
           </button>
+        </div>
+
+        {/* Pagination Dots (Bottom Center) */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2">
+          {stories.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`h-1 rounded-full transition-all duration-300 ${
+                index === currentSlide ? 'w-8 bg-scm-green' : 'w-1 bg-white/40'
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
         </div>
       </div>
     </section>

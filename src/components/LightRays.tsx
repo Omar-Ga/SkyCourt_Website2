@@ -42,8 +42,8 @@ export default function LightRays() {
         300
       );
 
-      gradient.addColorStop(0, 'rgba(255, 255, 255, 0.4)');
-      gradient.addColorStop(0.3, 'rgba(200, 200, 220, 0.2)');
+      gradient.addColorStop(0, 'hsla(279, 65%, 32%, 0.4)');
+      gradient.addColorStop(0.3, 'hsla(292, 71%, 49%, 0.2)');
       gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
 
       ctx.fillStyle = gradient;
@@ -55,8 +55,8 @@ export default function LightRays() {
         const endY = mouseY + Math.sin(angle) * 500;
 
         const rayGradient = ctx.createLinearGradient(mouseX, mouseY, endX, endY);
-        rayGradient.addColorStop(0, 'rgba(255, 255, 255, 0.15)');
-        rayGradient.addColorStop(0.5, 'rgba(200, 200, 220, 0.05)');
+        rayGradient.addColorStop(0, 'hsla(279, 65%, 32%, 0.15)');
+        rayGradient.addColorStop(0.5, 'hsla(292, 71%, 49%, 0.05)');
         rayGradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
 
         ctx.strokeStyle = rayGradient;

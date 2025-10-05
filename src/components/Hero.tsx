@@ -1,8 +1,10 @@
+import { useState, useEffect, forwardRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
+import { RotatingText } from '@/components/ui/shadcn-io/rotating-text';
 
-export default function Hero() {
+const Hero = forwardRef<HTMLElement>((_, ref) => {
   const { t } = useTranslation();
   const [textVisible, setTextVisible] = useState(false);
 
@@ -12,10 +14,30 @@ export default function Hero() {
   }, []);
 
   const headline = "SKYCOURT";
-  const tagline = t('experience_shopping');
+  const navItems = [
+    { label: t('home'), href: '#' },
+    { label: t('nav_brands'), href: '#brands' },
+    { label: t('nav_services'), href: '#services' },
+    { label: t('nav_location'), href: '#location' },
+    { label: t('nav_contact'), href: '#contact' },
+  ];
 
   return (
-    <section className="relative w-full h-screen overflow-hidden">
+    <section ref={ref} className="relative w-full h-screen overflow-hidden">
+      <div className="absolute top-0 left-0 right-0 z-30 flex justify-center pt-8">
+        <nav className="hidden md:flex items-center gap-8">
+          {navItems.map((item) => (
+            <a
+              key={item.label}
+              href={item.href}
+              className="text-white hover:text-white text-sm font-medium tracking-wide transition-colors"
+            >
+              {item.label}
+            </a>
+          ))}
+        </nav>
+      </div>
+
       <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50 z-10" />
 
       <video
@@ -54,14 +76,17 @@ export default function Hero() {
           ))}
         </motion.h1>
 
-        <motion.p
-          className="text-lg md:text-xl font-light tracking-wide text-center max-w-2xl"
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: textVisible ? 1 : 0, y: textVisible ? 0 : 20 }}
           transition={{ duration: 0.8, delay: headline.length * 0.05 + 0.3 }}
         >
-          {tagline}
-        </motion.p>
+          <RotatingText
+            text={t('rotating_texts', { returnObjects: true }) as string[]}
+            duration={3000}
+            className="text-2xl md:text-3xl font-light tracking-wide text-center max-w-2xl"
+          />
+        </motion.div>
       </div>
 
       <motion.div
@@ -75,4 +100,6 @@ export default function Hero() {
       </motion.div>
     </section>
   );
-}
+});
+
+export default Hero;

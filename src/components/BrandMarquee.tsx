@@ -7,13 +7,13 @@ export default function BrandMarquee() {
   const duplicatedBrands = [...brands, ...brands];
 
   return (
-    <section className="relative py-24 overflow-hidden" id="brands">
+    <section className="relative py-16 overflow-hidden" id="brands">
       <div className="mb-16 text-center px-6">
         <motion.h2
           className="serif text-5xl md:text-7xl font-light text-black mb-6"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{}}
           transition={{ duration: 0.8 }}
         >
           {t('iconic_brands')}
@@ -50,7 +50,7 @@ export default function BrandMarquee() {
               transition={{ duration: 0.3 }}
             >
               <div
-                className="bg-white/80 backdrop-blur-sm border border-black/10 rounded-2xl px-12 py-8 shadow-lg hover:shadow-2xl transition-shadow duration-300"
+                className="bg-white/80 backdrop-blur-sm border border-black/10 rounded-2xl px-12 py-8 shadow-lg hover:shadow-[0_25px_50px_-12px_hsl(var(--primary)/0.25)] transition-shadow duration-300"
                 style={{
                   transformStyle: 'preserve-3d',
                   transform: 'translateZ(0)',

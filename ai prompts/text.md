@@ -134,6 +134,3 @@
   "interactive_map_coming_soon": "خريطة تفاعلية قريبًا"
 }
 ```
-
-
-[,"color change":] 

@@ -2,6 +2,14 @@ import { useEffect, useState } from 'react';
 import { motion, useSpring, useMotionValue } from 'framer-motion';
 
 export default function CustomCursor() {
+  // Check if the device is likely a mobile device (no fine pointer)
+  const isMobile = typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches;
+
+  // If it's a mobile device, return null to disable the cursor
+  if (isMobile) {
+    return null;
+  }
+
   const [isPointer, setIsPointer] = useState(false);
   const [isPressed, setIsPressed] = useState(false);
 
@@ -55,7 +63,7 @@ export default function CustomCursor() {
           <div className="w-4 h-4 rounded-full bg-white" />
           {isPointer && (
             <motion.div
-              className="absolute inset-0 rounded-full border border-white"
+              className="absolute inset-0 rounded-full border border-accent"
               initial={{ scale: 1, opacity: 0 }}
               animate={{ scale: 2, opacity: 1 }}
               transition={{ duration: 0.3 }}

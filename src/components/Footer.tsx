@@ -23,7 +23,7 @@ export default function Footer() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{}}
             transition={{ duration: 0.8 }}
           >
             <div className="flex items-center gap-3 mb-6">
@@ -40,7 +40,7 @@ export default function Footer() {
                   <motion.a
                     key={social.label}
                     href={social.href}
-                    className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300"
+                    className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300"
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     whileTap={{ scale: 0.95 }}
                     aria-label={social.label}
@@ -56,24 +56,24 @@ export default function Footer() {
             className="grid grid-cols-2 gap-8"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div>
               <h3 className="text-sm uppercase tracking-wider font-medium mb-4">{t('explore')}</h3>
               <ul className="space-y-3">
                 <li>
-                  <a href="#brands" className="text-white/60 hover:text-white transition-colors">
+                  <a href="#brands" className="text-white/60 hover:text-primary transition-colors">
                     {t('nav_brands')}
                   </a>
                 </li>
                 <li>
-                  <a href="#services" className="text-white/60 hover:text-white transition-colors">
+                  <a href="#services" className="text-white/60 hover:text-primary transition-colors">
                     {t('nav_services')}
                   </a>
                 </li>
                 <li>
-                  <a href="#location" className="text-white/60 hover:text-white transition-colors">
+                  <a href="#location" className="text-white/60 hover:text-primary transition-colors">
                     {t('nav_location')}
                   </a>
                 </li>
@@ -86,18 +86,18 @@ export default function Footer() {
                 <li>
                   <a
                     href={`mailto:${t('email_details')}`}
-                    className="text-white/60 hover:text-white transition-colors"
+                    className="text-white/60 hover:text-primary transition-colors"
                   >
                     {t('email_link')}
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-white/60 hover:text-white transition-colors">
+                  <a href="#" className="text-white/60 hover:text-primary transition-colors">
                     {t('call_link')}
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-white/60 hover:text-white transition-colors">
+                  <a href="#" className="text-white/60 hover:text-primary transition-colors">
                     {t('careers_link')}
                   </a>
                 </li>
@@ -110,17 +110,17 @@ export default function Footer() {
           className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
+          viewport={{}}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           <p className="text-white/40 text-sm">
             {t('copyright')}
           </p>
           <div className="flex gap-6">
-            <a href="#" className="text-white/40 hover:text-white text-sm transition-colors">
+            <a href="#" className="text-white/40 hover:text-primary text-sm transition-colors">
               {t('privacy_policy')}
             </a>
-            <a href="#" className="text-white/40 hover:text-white text-sm transition-colors">
+            <a href="#" className="text-white/40 hover:text-primary text-sm transition-colors">
               {t('terms_of_service')}
             </a>
           </div>
