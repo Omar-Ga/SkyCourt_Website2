@@ -1,17 +1,32 @@
 import { useState, useEffect, forwardRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { RotatingText } from './ui/shadcn-io/rotating-text';
 import { Link } from 'react-router-dom';
 
+const images = [
+  '/hero section/hero1.webp',
+  '/hero section/Glowing_skycourt.webp',
+  '/hero section/Shopping_Carts.webp',
+];
+
 const Hero = forwardRef<HTMLElement>((_, ref) => {
   const { t } = useTranslation();
   const [textVisible, setTextVisible] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
     const timer = setTimeout(() => setTextVisible(true), 800);
     return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 7000); // 2s fade + 5s visible
+
+    return () => clearInterval(interval);
   }, []);
 
   const headline = "SkyCourt Mall";
@@ -54,13 +69,31 @@ const Hero = forwardRef<HTMLElement>((_, ref) => {
         </nav>
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50 z-10" />
-
-      <img
-        src="/home_images/entrance darker.webp"
-        alt="SkyCourt Mall"
-        className="absolute inset-0 w-full h-full object-cover"
+      <div className="absolute inset-0 bg-black/50 z-10" />
+      <div
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          boxShadow: 'inset 0 0 10em 3em rgba(0,0,0,0.9)',
+          zIndex: 10,
+        }}
       />
+
+      <AnimatePresence>
+        <motion.img
+          key={currentImageIndex}
+          src={images[currentImageIndex]}
+          alt="SkyCourt Mall"
+          className="absolute inset-0 w-full h-full object-cover"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 2, ease: 'easeInOut' }}
+        />
+      </AnimatePresence>
 
       <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-white px-6">
         <motion.h1

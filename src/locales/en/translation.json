@@ -25,7 +25,7 @@
     { "name": "Ammar Auto" }, { "name": "B-Tech" }, { "name": "Balbaa Village" }, { "name": "Blaban" }, { "name": "Bright Store" }, { "name": "Dream 2000" }, { "name": "Fathalla Market" }, { "name": "Ftirty" }, { "name": "Donia El Gambary" }, { "name": "Hamed El Basiony" }, { "name": "Hans" }, { "name": "Hardees" }, { "name": "KFC" }, { "name": "Khatab" }, { "name": "Pizza Hut" }, { "name": "Ragab Perfumes" }, { "name": "Raya" }, { "name": "Smart Furniture" }, { "name": "El Tahrir" }, { "name": "Zizo & Lavish" }
   ],
   "services": [
-    { "title": "Safe & Fun Kids Area", "description": "Enjoy peace of mind with our fully enclosed and supervised play space for your children.", "image": "/home_images/kids_area_placeholder.webp" },
+    { "title": "Safe & Fun Kids Area", "description": "Enjoy peace of mind with our fully enclosed and supervised play space for your children.", "image": "/home_images/kids_area.webp" },
     { "title": "24-Hour Supermarket", "description": "All your needs, anytime. Our supermarket is open 24/7 for your convenience.", "image": "/home_images/supermarket.webp", "objectPosition": "top" },
     { "title": "Cafes & Eateries", "description": "From a quick coffee to a relaxing lunch, choose from our diverse selection of cafes.", "image": "/home_images/open_setting_edited.webp" }
   ],
