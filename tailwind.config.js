@@ -14,6 +14,9 @@ export default {
         },
         'scm-green': 'hsl(var(--scm-green))', // Special highlight color
       },
+      fontFamily: {
+        'alan-sans': ['Alan Sans', 'sans-serif'],
+      },
     },
   },
   plugins: [],

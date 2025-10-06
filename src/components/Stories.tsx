@@ -26,7 +26,7 @@ export default function Stories() {
   const testimonials = t('testimonials', { returnObjects: true }) as { name: string; rating: number; comment: string; location: string }[];
 
   const stories: Story[] = [
-    ...services.map(s => ({ ...s, type: 'service' as const, image: 'https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg?auto=compress&cs=tinysrgb&w=1920' })),
+    ...services.map(s => ({ ...s, type: 'service' as const })),
     ...testimonials.map(tm => ({ type: 'testimonial' as const, quote: tm.comment, author: tm.name, location: tm.location }))
   ];
 
