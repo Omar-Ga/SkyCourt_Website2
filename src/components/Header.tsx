@@ -2,55 +2,15 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { Building2, Menu, X } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Navigation from './shared/Navigation';
 
 export default function Header({ show }: { show: boolean }) {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleLanguage = () => {
     const newLang = i18n.language === 'en' ? 'ar' : 'en';
     i18n.changeLanguage(newLang);
-  };
-
-  const navItems = [
-    { label: t('nav_home'), href: '/', isRoute: true },
-    { label: t('nav_brands'), href: '#brands', isRoute: false },
-    { label: t('nav_services'), href: '#services', isRoute: false },
-    { label: t('nav_dining'), href: '/dining', isRoute: true },
-    { label: t('nav_location'), href: '#location', isRoute: false },
-    { label: t('nav_contact'), href: '#contact', isRoute: false },
-  ];
-
-  const NavLink = ({ item, index }: { item: typeof navItems[0], index: number }) => {
-    const commonProps = {
-      className: "text-black/80 hover:text-black text-sm font-medium tracking-wide relative group transition-colors",
-      initial: { opacity: 0, y: -10 },
-      animate: { opacity: 1, y: 0 },
-      transition: { delay: index * 0.1 },
-    };
-
-    if (item.isRoute) {
-      return (
-        <motion.div {...commonProps}>
-          <Link to={item.href}>
-            {item.label}
-            <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full" />
-          </Link>
-        </motion.div>
-      );
-    }
-
-    return (
-      <motion.a
-        key={item.label}
-        href={item.href}
-        {...commonProps}
-      >
-        {item.label}
-        <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full" />
-      </motion.a>
-    );
   };
 
   return (
@@ -81,17 +41,17 @@ export default function Header({ show }: { show: boolean }) {
             </span>
           </motion.a>
 
-          <nav className="hidden md:flex items-center gap-8">
-            {navItems.map((item, index) => (
-              <NavLink key={item.label} item={item} index={index} />
-            ))}
+          <div className="hidden md:flex items-center gap-8">
+            <Navigation
+              linkClassName="text-black/80 hover:text-black text-sm font-medium tracking-wide"
+            />
             <button
               onClick={toggleLanguage}
               className="text-black/80 hover:text-black text-sm font-medium tracking-wide relative group transition-colors"
             >
               {i18n.language === 'en' ? 'AR' : 'EN'}
             </button>
-          </nav>
+          </div>
 
           <button
             className="md:hidden text-black"
@@ -110,35 +70,17 @@ export default function Header({ show }: { show: boolean }) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
         >
-          <nav className="flex flex-col items-center gap-8">
-            {navItems.map((item) => (
-              item.isRoute ? (
-                <Link
-                  key={item.label}
-                  to={item.href}
-                  className="serif text-3xl text-black/80 hover:text-black transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {item.label}
-                </Link>
-              ) : (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  className="serif text-3xl text-black/80 hover:text-black transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {item.label}
-                </a>
-              )
-            ))}
-            <button
-              onClick={() => { toggleLanguage(); setIsMobileMenuOpen(false); }}
-              className="serif text-3xl text-black/80 hover:text-black transition-colors"
-            >
-              {i18n.language === 'en' ? 'AR' : 'EN'}
-            </button>
-          </nav>
+          <Navigation
+            className="flex-col gap-8"
+            linkClassName="serif text-3xl text-black/80 hover:text-black"
+            onLinkClick={() => setIsMobileMenuOpen(false)}
+          />
+          <button
+            onClick={() => { toggleLanguage(); setIsMobileMenuOpen(false); }}
+            className="serif text-3xl text-black/80 hover:text-black transition-colors mt-8"
+          >
+            {i18n.language === 'en' ? 'AR' : 'EN'}
+          </button>
         </motion.div>
       )}
     </>

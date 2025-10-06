@@ -1,10 +1,20 @@
-import { useTranslation } from 'react-i18next';
+import { useRef, useState, useLayoutEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 export default function BrandMarquee() {
   const { t } = useTranslation();
   const brands = t('brands', { returnObjects: true }) as { name: string }[];
   const duplicatedBrands = [...brands, ...brands];
+  
+  const marqueeRef = useRef<HTMLDivElement>(null);
+  const [marqueeWidth, setMarqueeWidth] = useState(0);
+
+  useLayoutEffect(() => {
+    if (marqueeRef.current) {
+      setMarqueeWidth(marqueeRef.current.scrollWidth / 2);
+    }
+  }, [brands]);
 
   return (
     <section className="relative py-16 overflow-hidden" id="brands">
@@ -19,21 +29,15 @@ export default function BrandMarquee() {
           {t('iconic_brands')}
         </motion.h2>
       </div>
-
       <div className="relative" style={{ perspective: '1000px' }}>
         <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#fafaf8] to-transparent z-10" />
         <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#fafaf8] to-transparent z-10" />
 
         <motion.div
+          ref={marqueeRef}
           className="flex gap-16 py-8"
-          animate={{
-            x: [0, -1 * (brands.length * 200)], // Approximate width
-          }}
-          transition={{
-            duration: 60,
-            ease: 'linear',
-            repeat: Infinity,
-          }}
+          animate={{ x: [0, -marqueeWidth] }}
+          transition={{ duration: marqueeWidth ? marqueeWidth / 50 : 60, ease: 'linear', repeat: Infinity }} // Dynamic duration
         >
           {duplicatedBrands.map((brand, index) => (
             <motion.div

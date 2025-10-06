@@ -9,6 +9,7 @@ type Service = {
   title: string;
   description: string;
   image: string;
+  objectPosition?: string;
 };
 
 type Testimonial = {
@@ -22,11 +23,11 @@ type Story = Service | Testimonial;
 
 export default function Stories() {
   const { t } = useTranslation();
-  const services = t('services', { returnObjects: true }) as { title: string; description: string }[];
+  const services = t('services', { returnObjects: true }) as { title: string; description: string; image: string; objectPosition?: string; }[];
   const testimonials = t('testimonials', { returnObjects: true }) as { name: string; rating: number; comment: string; location: string }[];
 
   const stories: Story[] = [
-    ...services.map(s => ({ ...s, type: 'service' as const, image: 'https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg?auto=compress&cs=tinysrgb&w=1920' })),
+    ...services.map(s => ({ ...s, type: 'service' as const })),
     ...testimonials.map(tm => ({ type: 'testimonial' as const, quote: tm.comment, author: tm.name, location: tm.location }))
   ];
 
@@ -42,7 +43,6 @@ export default function Stories() {
 
   const currentStory = stories[currentSlide];
 
-  // 1. Bind drag handler to the carousel container
   const bind = useDrag(({ swipe: [swipeX] }) => {
     if (swipeX === 1) {
       prevSlide();
@@ -50,9 +50,7 @@ export default function Stories() {
       nextSlide();
     }
   }, {
-    // Only allow horizontal drag
     axis: 'x',
-    // Prevent vertical scrolling from being blocked
     filterTaps: true,
   });
 
@@ -70,7 +68,6 @@ export default function Stories() {
         </motion.h2>
       </div>
 
-      {/* 2. Apply drag binding to the main carousel area */}
       <div className="relative h-[70vh] min-h-[600px]" {...bind()}>
         <AnimatePresence mode="wait">
           <motion.div
@@ -88,6 +85,7 @@ export default function Stories() {
                   src={currentStory.image}
                   alt={currentStory.title}
                   className="w-full h-full object-cover"
+                  style={{ objectPosition: currentStory.objectPosition || 'center' }}
                 />
                 <div className="absolute inset-0 z-20 flex flex-col justify-end p-12 md:p-20">
                   <motion.h3
@@ -146,7 +144,6 @@ export default function Stories() {
         </AnimatePresence>
 
         <div className="absolute inset-0 z-30 flex items-center justify-between px-6 md:px-12 pointer-events-none">
-          {/* Previous Button (Mobile/Desktop) */}
           <button
             onClick={prevSlide}
             className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-primary/20 transition-all duration-300 hover:scale-110 active:scale-95 pointer-events-auto"
@@ -155,7 +152,6 @@ export default function Stories() {
             <ChevronLeft className="w-6 h-6" />
           </button>
 
-          {/* Next Button (Mobile/Desktop) */}
           <button
             onClick={nextSlide}
             className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-primary/20 transition-all duration-300 hover:scale-110 active:scale-95 pointer-events-auto"
@@ -165,7 +161,6 @@ export default function Stories() {
           </button>
         </div>
 
-        {/* Pagination Dots (Bottom Center) */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2">
           {stories.map((_, index) => (
             <button
