@@ -13,7 +13,7 @@ export interface Eatery {
 
 export const eateries: Eatery[] = [
   {
-    id: "kfc", name: "KFC", logoUrl: "/brands/KFC edited.webp", phone: "+20-123-456-7890",
+    id: "kfc", name: "KFC", logoUrl: "https://images.pexels.com/photos/2347311/pexels-photo-2347311.jpeg", phone: "+20-123-456-7890",
     details: [
       { imageUrl: "https://images.pexels.com/photos/2347311/pexels-photo-2347311.jpeg", descriptionKey: "eateries.kfc.detail1" },
       { imageUrl: "https://images.pexels.com/photos/616401/pexels-photo-616401.jpeg", descriptionKey: "eateries.kfc.detail2" },
@@ -22,7 +22,7 @@ export const eateries: Eatery[] = [
     ]
   },
   {
-    id: "pizza-hut", name: "Pizza Hut", logoUrl: "/brands/pizza hut edited.webp", phone: "+20-123-456-7891",
+    id: "pizza-hut", name: "Pizza Hut", logoUrl: "https://images.pexels.com/photos/825661/pexels-photo-825661.jpeg", phone: "+20-123-456-7891",
     details: [
       { imageUrl: "https://images.pexels.com/photos/1653877/pexels-photo-1653877.jpeg", descriptionKey: "eateries.pizza_hut.detail1" },
       { imageUrl: "https://images.pexels.com/photos/315755/pexels-photo-315755.jpeg", descriptionKey: "eateries.pizza_hut.detail2" },
@@ -31,7 +31,7 @@ export const eateries: Eatery[] = [
     ]
   },
   {
-    id: "hardees", name: "Hardees", logoUrl: "/brands/hardees edited.webp", phone: "+20-123-456-7892",
+    id: "hardees", name: "Hardees", logoUrl: "https://images.pexels.com/photos/1639565/pexels-photo-1639565.jpeg", phone: "+20-123-456-7892",
     details: [
       { imageUrl: "https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg", descriptionKey: "eateries.hardees.detail1" },
       { imageUrl: "https://images.pexels.com/photos/1552635/pexels-photo-1552635.jpeg", descriptionKey: "eateries.hardees.detail2" },
@@ -40,7 +40,7 @@ export const eateries: Eatery[] = [
     ]
   },
   {
-    id: "feterty", name: "Ftirty", logoUrl: "/brands/feterty edited.webp", phone: "+20-123-456-7893",
+    id: "feterty", name: "Ftirty", logoUrl: "https://images.pexels.com/photos/1639562/pexels-photo-1639562.jpeg", phone: "+20-123-456-7893",
     details: [
       { imageUrl: "https://images.pexels.com/photos/1854652/pexels-photo-1854652.jpeg", descriptionKey: "eateries.feterty.detail1" },
       { imageUrl: "https://images.pexels.com/photos/4057663/pexels-photo-4057663.jpeg", descriptionKey: "eateries.feterty.detail2" },
@@ -49,7 +49,7 @@ export const eateries: Eatery[] = [
     ]
   },
   {
-    id: "hans", name: "Hans", logoUrl: "/brands/hans edited.webp", phone: "+20-123-456-7894",
+    id: "hans", name: "Hans", logoUrl: "https://images.pexels.com/photos/1833349/pexels-photo-1833349.jpeg", phone: "+20-123-456-7894",
     details: [
       { imageUrl: "https://images.pexels.com/photos/1893556/pexels-photo-1893556.jpeg", descriptionKey: "eateries.hans.detail1" },
       { imageUrl: "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg", descriptionKey: "eateries.hans.detail2" },
@@ -58,7 +58,7 @@ export const eateries: Eatery[] = [
     ]
   },
   {
-    id: "blaban", name: "Blaban", logoUrl: "/brands/blaban edited.webp", phone: "+20-123-456-7895",
+    id: "blaban", name: "Blaban", logoUrl: "https://images.pexels.com/photos/1624487/pexels-photo-1624487.jpeg", phone: "+20-123-456-7895",
     details: [
       { imageUrl: "https://images.pexels.com/photos/1484516/pexels-photo-1484516.jpeg", descriptionKey: "eateries.blaban.detail1" },
       { imageUrl: "https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg", descriptionKey: "eateries.blaban.detail2" },
@@ -67,7 +67,7 @@ export const eateries: Eatery[] = [
     ]
   },
   {
-    id: "ammar-auto", name: "Ammar Auto", logoUrl: "/brands/ammar-auto.webp", phone: "+20-123-456-7896",
+    id: "ammar-auto", name: "Ammar Auto", logoUrl: "https://images.pexels.com/photos/164634/pexels-photo-164634.jpeg", phone: "+20-123-456-7896",
     details: [
       { imageUrl: "https://images.pexels.com/photos/13861/IMG_3496bfree.jpg", descriptionKey: "eateries.ammar-auto.detail1" },
       { imageUrl: "https://images.pexels.com/photos/3807386/pexels-photo-3807386.jpeg", descriptionKey: "eateries.ammar-auto.detail2" },
@@ -76,7 +76,7 @@ export const eateries: Eatery[] = [
     ]
   },
   {
-    id: "b-tech", name: "B-Tech", logoUrl: "/brands/b-tech.webp", phone: "+20-123-456-7897",
+    id: "b-tech", name: "B-Tech", logoUrl: "https://images.pexels.com/photos/356056/pexels-photo-356056.jpeg", phone: "+20-123-456-7897",
     details: [
       { imageUrl: "https://images.pexels.com/photos/335257/pexels-photo-335257.jpeg", descriptionKey: "eateries.b-tech.detail1" },
       { imageUrl: "https://images.pexels.com/photos/1229861/pexels-photo-1229861.jpeg", descriptionKey: "eateries.b-tech.detail2" },
@@ -85,7 +85,7 @@ export const eateries: Eatery[] = [
     ]
   },
   {
-    id: "balbaa-village", name: "Balbaa Village", logoUrl: "/brands/balbaa-village.webp", phone: "+20-123-456-7898",
+    id: "balbaa-village", name: "Balbaa Village", logoUrl: "https://images.pexels.com/photos/1211887/pexels-photo-1211887.jpeg", phone: "+20-123-456-7898",
     details: [
       { imageUrl: "https://images.pexels.com/photos/5638749/pexels-photo-5638749.jpeg", descriptionKey: "eateries.balbaa-village.detail1" },
       { imageUrl: "https://images.pexels.com/photos/1410235/pexels-photo-1410235.jpeg", descriptionKey: "eateries.balbaa-village.detail2" },
@@ -94,7 +94,7 @@ export const eateries: Eatery[] = [
     ]
   },
   {
-    id: "bright-store", name: "Bright Store", logoUrl: "/brands/bright-store.webp", phone: "+20-123-456-7899",
+    id: "bright-store", name: "Bright Store", logoUrl: "https://images.pexels.com/photos/1005638/pexels-photo-1005638.jpeg", phone: "+20-123-456-7899",
     details: [
       { imageUrl: "https://images.pexels.com/photos/1957477/pexels-photo-1957477.jpeg", descriptionKey: "eateries.bright-store.detail1" },
       { imageUrl: "https://images.pexels.com/photos/1005638/pexels-photo-1005638.jpeg", descriptionKey: "eateries.bright-store.detail2" },
@@ -103,7 +103,7 @@ export const eateries: Eatery[] = [
     ]
   },
   {
-    id: "dream-2000", name: "Dream 2000", logoUrl: "/brands/dream-2000.webp", phone: "+20-123-456-7900",
+    id: "dream-2000", name: "Dream 2000", logoUrl: "https://images.pexels.com/photos/380283/pexels-photo-380283.jpeg", phone: "+20-123-456-7900",
     details: [
       { imageUrl: "https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg", descriptionKey: "eateries.dream-2000.detail1" },
       { imageUrl: "https://images.pexels.com/photos/4207892/pexels-photo-4207892.jpeg", descriptionKey: "eateries.dream-2000.detail2" },
@@ -112,7 +112,7 @@ export const eateries: Eatery[] = [
     ]
   },
   {
-    id: "fathalla-market", name: "Fathalla Market", logoUrl: "/brands/fathalla-market.webp", phone: "+20-123-456-7901",
+    id: "fathalla-market", name: "Fathalla Market", logoUrl: "https://images.pexels.com/photos/2252584/pexels-photo-2252584.jpeg", phone: "+20-123-456-7901",
     details: [
       { imageUrl: "https://images.pexels.com/photos/264636/pexels-photo-264636.jpeg", descriptionKey: "eateries.fathalla-market.detail1" },
       { imageUrl: "https://images.pexels.com/photos/4199098/pexels-photo-4199098.jpeg", descriptionKey: "eateries.fathalla-market.detail2" },
@@ -121,7 +121,7 @@ export const eateries: Eatery[] = [
     ]
   },
   {
-    id: "donia-el-gambary", name: "Donia El Gambary", logoUrl: "/brands/donia-el-gambary.webp", phone: "+20-123-456-7902",
+    id: "donia-el-gambary", name: "Donia El Gambary", logoUrl: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg", phone: "+20-123-456-7902",
     details: [
       { imageUrl: "https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg", descriptionKey: "eateries.donia-el-gambary.detail1" },
       { imageUrl: "https://images.pexels.com/photos/566566/pexels-photo-566566.jpeg", descriptionKey: "eateries.donia-el-gambary.detail2" },
@@ -130,7 +130,7 @@ export const eateries: Eatery[] = [
     ]
   },
   {
-    id: "hamed-el-basiony", name: "Hamed El Basiony", logoUrl: "/brands/hamed-el-basiony.webp", phone: "+20-123-456-7903",
+    id: "hamed-el-basiony", name: "Hamed El Basiony", logoUrl: "https://images.pexels.com/photos/1148086/pexels-photo-1148086.jpeg", phone: "+20-123-456-7903",
     details: [
       { imageUrl: "https://images.pexels.com/photos/1092730/pexels-photo-1092730.jpeg", descriptionKey: "eateries.hamed-el-basiony.detail1" },
       { imageUrl: "https://images.pexels.com/photos/1187766/pexels-photo-1187766.jpeg", descriptionKey: "eateries.hamed-el-basiony.detail2" },
@@ -139,7 +139,7 @@ export const eateries: Eatery[] = [
     ]
   },
   {
-    id: "khatab", name: "Khatab", logoUrl: "/brands/khatab.webp", phone: "+20-123-456-7904",
+    id: "khatab", name: "Khatab", logoUrl: "https://images.pexels.com/photos/298863/pexels-photo-298863.jpeg", phone: "+20-123-456-7904",
     details: [
       { imageUrl: "https://images.pexels.com/photos/2983101/pexels-photo-2983101.jpeg", descriptionKey: "eateries.khatab.detail1" },
       { imageUrl: "https://images.pexels.com/photos/4226804/pexels-photo-4226804.jpeg", descriptionKey: "eateries.khatab.detail2" },
@@ -148,7 +148,7 @@ export const eateries: Eatery[] = [
     ]
   },
   {
-    id: "ragab-perfumes", name: "Ragab Perfumes", logoUrl: "/brands/ragab-perfumes.webp", phone: "+20-123-456-7905",
+    id: "ragab-perfumes", name: "Ragab Perfumes", logoUrl: "https://images.pexels.com/photos/3373736/pexels-photo-3373736.jpeg", phone: "+20-123-456-7905",
     details: [
       { imageUrl: "https://images.pexels.com/photos/965989/pexels-photo-965989.jpeg", descriptionKey: "eateries.ragab-perfumes.detail1" },
       { imageUrl: "https://images.pexels.com/photos/1961795/pexels-photo-1961795.jpeg", descriptionKey: "eateries.ragab-perfumes.detail2" },
@@ -157,7 +157,7 @@ export const eateries: Eatery[] = [
     ]
   },
   {
-    id: "raya", name: "Raya", logoUrl: "/brands/raya.webp", phone: "+20-123-456-7906",
+    id: "raya", name: "Raya", logoUrl: "https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg", phone: "+20-123-456-7906",
     details: [
       { imageUrl: "https://images.pexels.com/photos/934063/pexels-photo-934063.jpeg", descriptionKey: "eateries.raya.detail1" },
       { imageUrl: "https://images.pexels.com/photos/3178938/pexels-photo-3178938.jpeg", descriptionKey: "eateries.raya.detail2" },
@@ -166,7 +166,7 @@ export const eateries: Eatery[] = [
     ]
   },
   {
-    id: "smart-furniture", name: "Smart Furniture", logoUrl: "/brands/smart-furniture.webp", phone: "+20-123-456-7907",
+    id: "smart-furniture", name: "Smart Furniture", logoUrl: "https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg", phone: "+20-123-456-7907",
     details: [
       { imageUrl: "https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg", descriptionKey: "eateries.smart-furniture.detail1" },
       { imageUrl: "https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg", descriptionKey: "eateries.smart-furniture.detail2" },
@@ -175,7 +175,7 @@ export const eateries: Eatery[] = [
     ]
   },
   {
-    id: "el-tahrir", name: "El Tahrir", logoUrl: "/brands/el-tahrir.webp", phone: "+20-123-456-7908",
+    id: "el-tahrir", name: "El Tahrir", logoUrl: "https://images.pexels.com/photos/1884581/pexels-photo-1884581.jpeg", phone: "+20-123-456-7908",
     details: [
       { imageUrl: "https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg", descriptionKey: "eateries.el-tahrir.detail1" },
       { imageUrl: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg", descriptionKey: "eateries.el-tahrir.detail2" },
@@ -184,7 +184,7 @@ export const eateries: Eatery[] = [
     ]
   },
   {
-    id: "zizo-&-lavish", name: "Zizo & Lavish", logoUrl: "/brands/zizo-&-lavish.webp", phone: "+20-123-456-7909",
+    id: "zizo-&-lavish", name: "Zizo & Lavish", logoUrl: "https://images.pexels.com/photos/291762/pexels-photo-291762.jpeg", phone: "+20-123-456-7909",
     details: [
       { imageUrl: "https://images.pexels.com/photos/291762/pexels-photo-291762.jpeg", descriptionKey: "eateries.zizo-&-lavish.detail1" },
       { imageUrl: "https://images.pexels.com/photos/1884581/pexels-photo-1884581.jpeg", descriptionKey: "eateries.zizo-&-lavish.detail2" },
