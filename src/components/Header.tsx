@@ -77,7 +77,7 @@ export default function Header({ show }: { show: boolean }) {
           >
             <Building2 className="w-8 h-8 text-black" strokeWidth={1.5} />
             <span className="serif text-2xl font-semibold text-black tracking-wide">
-              SkyCourt
+              {t('skycourt')}
             </span>
           </motion.a>
 

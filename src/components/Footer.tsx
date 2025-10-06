@@ -28,7 +28,7 @@ export default function Footer() {
           >
             <div className="flex items-center gap-3 mb-6">
               <Building2 className="w-10 h-10" strokeWidth={1.5} />
-              <span className="serif text-3xl font-semibold tracking-wide">SkyCourt</span>
+              <span className="serif text-3xl font-semibold tracking-wide">{t('skycourt')}</span>
             </div>
             <p className="text-white/60 leading-relaxed max-w-md mb-8">
               {t('experience_shopping')}

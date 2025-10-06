@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
@@ -9,6 +9,7 @@ type Service = {
   title: string;
   description: string;
   image: string;
+  objectPosition?: string;
 };
 
 type Testimonial = {
@@ -21,8 +22,8 @@ type Testimonial = {
 type Story = Service | Testimonial;
 
 export default function Stories() {
-  const { t } = useTranslation();
-  const services = t('services', { returnObjects: true }) as { title: string; description: string }[];
+  const { t, i18n } = useTranslation();
+  const services = t('services', { returnObjects: true }) as { title: string; description: string; image: string; objectPosition?: string }[];
   const testimonials = t('testimonials', { returnObjects: true }) as { name: string; rating: number; comment: string; location: string }[];
 
   const stories: Story[] = [
@@ -40,19 +41,33 @@ export default function Stories() {
     setCurrentSlide((prev) => (prev - 1 + stories.length) % stories.length);
   };
 
+  useEffect(() => {
+    services.forEach(service => {
+      if (service.image) {
+        const img = new Image();
+        img.src = service.image;
+      }
+    });
+  }, [services]);
+
   const currentStory = stories[currentSlide];
 
-  // 1. Bind drag handler to the carousel container
   const bind = useDrag(({ swipe: [swipeX] }) => {
-    if (swipeX === 1) {
-      prevSlide();
-    } else if (swipeX === -1) {
-      nextSlide();
+    if (i18n.language === 'ar') {
+      if (swipeX === 1) {
+        nextSlide();
+      } else if (swipeX === -1) {
+        prevSlide();
+      }
+    } else {
+      if (swipeX === 1) {
+        prevSlide();
+      } else if (swipeX === -1) {
+        nextSlide();
+      }
     }
   }, {
-    // Only allow horizontal drag
     axis: 'x',
-    // Prevent vertical scrolling from being blocked
     filterTaps: true,
   });
 
@@ -70,7 +85,6 @@ export default function Stories() {
         </motion.h2>
       </div>
 
-      {/* 2. Apply drag binding to the main carousel area */}
       <div className="relative h-[70vh] min-h-[600px]" {...bind()}>
         <AnimatePresence mode="wait">
           <motion.div
@@ -88,6 +102,7 @@ export default function Stories() {
                   src={currentStory.image}
                   alt={currentStory.title}
                   className="w-full h-full object-cover"
+                  style={{ objectPosition: currentStory.objectPosition || 'center' }}
                 />
                 <div className="absolute inset-0 z-20 flex flex-col justify-end p-12 md:p-20">
                   <motion.h3
@@ -146,26 +161,23 @@ export default function Stories() {
         </AnimatePresence>
 
         <div className="absolute inset-0 z-30 flex items-center justify-between px-6 md:px-12 pointer-events-none">
-          {/* Previous Button (Mobile/Desktop) */}
           <button
             onClick={prevSlide}
             className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-primary/20 transition-all duration-300 hover:scale-110 active:scale-95 pointer-events-auto"
             aria-label="Previous slide"
           >
-            <ChevronLeft className="w-6 h-6" />
+            {i18n.language === 'ar' ? <ChevronRight className="w-6 h-6" /> : <ChevronLeft className="w-6 h-6" />}
           </button>
 
-          {/* Next Button (Mobile/Desktop) */}
           <button
             onClick={nextSlide}
             className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-primary/20 transition-all duration-300 hover:scale-110 active:scale-95 pointer-events-auto"
             aria-label="Next slide"
           >
-            <ChevronRight className="w-6 h-6" />
+            {i18n.language === 'ar' ? <ChevronLeft className="w-6 h-6" /> : <ChevronRight className="w-6 h-6" />}
           </button>
         </div>
 
-        {/* Pagination Dots (Bottom Center) */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2">
           {stories.map((_, index) => (
             <button

@@ -29,7 +29,7 @@ const Hero = forwardRef<HTMLElement>((_, ref) => {
     return () => clearInterval(interval);
   }, []);
 
-  const headline = "SkyCourt Mall";
+  const headline = t('hero_headline');
   const navItems = [
     { label: t('nav_home'), href: '/', isRoute: true },
     { label: t('nav_brands'), href: '#brands', isRoute: false },
@@ -110,8 +110,8 @@ const Hero = forwardRef<HTMLElement>((_, ref) => {
                 filter: textVisible ? 'blur(0px)' : 'blur(10px)'
               }}
               transition={{
-                duration: 0.5,
-                delay: index * 0.05,
+                duration: 1,
+                delay: index * 0.1,
                 ease: [0.22, 1, 0.36, 1]
               }}
             >

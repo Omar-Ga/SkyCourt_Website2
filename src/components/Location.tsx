@@ -65,7 +65,13 @@ export default function Location() {
                   <p className="text-sm text-white/50 tracking-wider uppercase mb-2">
                     {item.label}
                   </p>
-                  <p className="text-lg md:text-xl" dangerouslySetInnerHTML={{ __html: item.value }} />
+                  {item.label === t('email') ? (
+                    <p className="text-lg md:text-xl">
+                      <span dir="ltr">{item.value}</span>
+                    </p>
+                  ) : (
+                    <p className="text-lg md:text-xl" dangerouslySetInnerHTML={{ __html: item.value }} />
+                  )}
                 </div>
               </motion.div>
             ))}

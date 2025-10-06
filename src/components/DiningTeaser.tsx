@@ -1,16 +1,14 @@
-// src/components/DiningTeaser.tsx
-
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ChevronLeft } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function DiningTeaser() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   return (
     <section className="relative py-32 px-6 overflow-hidden">
-      <img src="https://images.unsplash.com/photo-1728287506854-e3de67cbac24" alt="" className="absolute inset-0 w-full h-full object-cover" />
+      <img src="https://images.unsplash.com/photo-1728287506854-e3de67cbac24" alt="" className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
       <div className="absolute inset-0 bg-black/50" />
       <div className="relative z-10 max-w-6xl mx-auto text-center">
         <motion.h2
@@ -41,8 +39,12 @@ export default function DiningTeaser() {
             to="/dining"
             className="group inline-flex items-center gap-3 px-8 py-4 bg-black text-white rounded-full font-semibold text-lg transition-all duration-300 hover:bg-primary hover:text-primary-foreground shadow-lg"
           >
-            Discover Our Restaurants
-            <ArrowRight className="w-6 h-6 transition-transform group-hover:translate-x-1" />
+            {t('discover_restaurants')}
+            {i18n.language === 'ar' ? (
+              <ChevronLeft className="w-6 h-6 transition-transform group-hover:-translate-x-1" />
+            ) : (
+              <ArrowRight className="w-6 h-6 transition-transform group-hover:translate-x-1" />
+            )}
           </Link>
         </motion.div>
       </div>
