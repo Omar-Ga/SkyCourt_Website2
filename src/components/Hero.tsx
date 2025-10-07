@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { RotatingText } from './ui/shadcn-io/rotating-text';
 import { Link } from 'react-router-dom';
+import { NAV_ITEMS, type NavItem } from '../data/navigation';
 
 const images = [
   '/hero section/hero1.webp',
@@ -24,22 +25,14 @@ const Hero = forwardRef<HTMLElement>((_, ref) => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 7000); // 2s fade + 5s visible
+    }, 3000); // 2s fade + 5s visible
 
     return () => clearInterval(interval);
   }, []);
 
   const headline = t('hero_headline');
-  const navItems = [
-    { label: t('nav_home'), href: '/', isRoute: true },
-    { label: t('nav_brands'), href: '#brands', isRoute: false },
-    { label: t('nav_services'), href: '#services', isRoute: false },
-    { label: t('nav_dining'), href: '/dining', isRoute: true },
-    { label: t('nav_location'), href: '#location', isRoute: false },
-    { label: t('nav_contact'), href: '#contact', isRoute: false },
-  ];
 
-  const NavLink = ({ item }: { item: typeof navItems[0] }) => {
+  const NavLink = ({ item }: { item: NavItem }) => {
     const commonProps = {
       className: "text-white hover:text-white text-sm font-medium tracking-wide transition-colors",
     };
@@ -47,14 +40,14 @@ const Hero = forwardRef<HTMLElement>((_, ref) => {
     if (item.isRoute) {
       return (
         <Link to={item.href} {...commonProps}>
-          {item.label}
+          {t(item.key)}
         </Link>
       );
     }
 
     return (
       <a href={item.href} {...commonProps}>
-        {item.label}
+        {t(item.key)}
       </a>
     );
   };
@@ -63,8 +56,8 @@ const Hero = forwardRef<HTMLElement>((_, ref) => {
     <section ref={ref} className="relative w-full h-screen overflow-hidden">
       <div className="absolute top-0 left-0 right-0 z-30 flex justify-center pt-8">
         <nav className="hidden md:flex items-center gap-8">
-          {navItems.map((item) => (
-            <NavLink key={item.label} item={item} />
+          {NAV_ITEMS.map((item) => (
+            <NavLink key={item.key} item={item} />
           ))}
         </nav>
       </div>

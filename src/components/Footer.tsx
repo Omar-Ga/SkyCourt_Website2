@@ -74,7 +74,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <a href="#location" className="text-white/60 hover:text-primary transition-colors">
-                    {t('nav_location')}
+                    {t('location')}
                   </a>
                 </li>
               </ul>

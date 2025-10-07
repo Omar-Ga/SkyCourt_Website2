@@ -13,48 +13,48 @@ export interface EateryDetail {
 
     export const eateries: Eatery[] = [
       {
-        id: "kfc", name: "KFC", logoUrl: "/brands/KFC edited.webp", phone: "+20-123-456-7890",
+        id: "kfc", name: "KFC", logoUrl: "https://images.pexels.com/photos/13998533/pexels-photo-13998533.jpeg", phone: "+20-123-456-7890",
         details: [
-          { imageUrl: "/dining/kfc-1.jpg", descriptionKey: "eateries.kfc.detail1" },
-          { imageUrl: "/dining/kfc-2.jpg", descriptionKey: "eateries.kfc.detail2" },
-          { imageUrl: "/dining/kfc-3.jpg", descriptionKey: "eateries.kfc.detail3" },
-          { imageUrl: "/dining/kfc-4.jpg", descriptionKey: "eateries.kfc.detail4" }
+          { imageUrl: "https://images.pexels.com/photos/2338407/pexels-photo-2338407.jpeg", descriptionKey: "eateries.kfc.detail1" },
+          { imageUrl: "https://images.pexels.com/photos/6726065/pexels-photo-6726065.jpeg", descriptionKey: "eateries.kfc.detail2" },
+          { imageUrl: "https://images.pexels.com/photos/2725744/pexels-photo-2725744.jpeg", descriptionKey: "eateries.kfc.detail3" },
+          { imageUrl: "https://images.pexels.com/photos/1157401/pexels-photo-1157401.jpeg", descriptionKey: "eateries.kfc.detail4" }
         ]
       },
       {
-        id: "pizza-hut", name: "Pizza Hut", logoUrl: "/brands/pizza hut edited.webp", phone: "+20-123-456-7891",
+        id: "pizza-hut", name: "Pizza Hut", logoUrl: "https://images.pexels.com/photos/1146760/pexels-photo-1146760.jpeg", phone: "+20-123-456-7891",
         details: [
-          { imageUrl: "/dining/pizza-1.jpg", descriptionKey: "eateries.pizza_hut.detail1" },
-          { imageUrl: "/dining/pizza-2.jpg", descriptionKey: "eateries.pizza_hut.detail2" },
-          { imageUrl: "/dining/pizza-3.jpg", descriptionKey: "eateries.pizza_hut.detail3" },
-          { imageUrl: "/dining/pizza-4.jpg", descriptionKey: "eateries.pizza_hut.detail4" }
+          { imageUrl: "https://images.pexels.com/photos/1653877/pexels-photo-1653877.jpeg", descriptionKey: "eateries.pizza_hut.detail1" },
+          { imageUrl: "https://images.pexels.com/photos/2147491/pexels-photo-2147491.jpeg", descriptionKey: "eateries.pizza_hut.detail2" },
+          { imageUrl: "https://images.pexels.com/photos/367915/pexels-photo-367915.jpeg", descriptionKey: "eateries.pizza_hut.detail3" },
+          { imageUrl: "https://images.pexels.com/photos/8254739/pexels-photo-8254739.jpeg", descriptionKey: "eateries.pizza_hut.detail4" }
         ]
       },
       {
-        id: "hardees", name: "Hardees", logoUrl: "/brands/hardees edited.webp", phone: "+20-123-456-7892",
+        id: "hardees", name: "Hardees", logoUrl: "https://images.pexels.com/photos/1639562/pexels-photo-1639562.jpeg", phone: "+20-123-456-7892",
         details: [
-          { imageUrl: "/dining/hardees-1.jpg", descriptionKey: "eateries.hardees.detail1" },
-          { imageUrl: "/dining/hardees-2.jpg", descriptionKey: "eateries.hardees.detail2" },
-          { imageUrl: "/dining/hardees-3.jpg", descriptionKey: "eateries.hardees.detail3" },
-          { imageUrl: "/dining/hardees-4.jpg", descriptionKey: "eateries.hardees.detail4" }
+          { imageUrl: "https://images.pexels.com/photos/1633578/pexels-photo-1633578.jpeg", descriptionKey: "eateries.hardees.detail1" },
+          { imageUrl: "https://images.pexels.com/photos/2983101/pexels-photo-2983101.jpeg", descriptionKey: "eateries.hardees.detail2" },
+          { imageUrl: "https://images.pexels.com/photos/1199957/pexels-photo-1199957.jpeg", descriptionKey: "eateries.hardees.detail3" },
+          { imageUrl: "https://images.pexels.com/photos/2271107/pexels-photo-2271107.jpeg", descriptionKey: "eateries.hardees.detail4" }
         ]
       },
       {
-        id: "feterty", name: "Ftirty", logoUrl: "/brands/feterty edited.webp", phone: "+20-123-456-7893",
+        id: "feterty", name: "Ftirty", logoUrl: "https://images.pexels.com/photos/1566837/pexels-photo-1566837.jpeg", phone: "+20-123-456-7893",
         details: [
-          { imageUrl: "/dining/feterty-1.jpg", descriptionKey: "eateries.feterty.detail1" },
-          { imageUrl: "/dining/feterty-2.jpg", descriptionKey: "eateries.feterty.detail2" },
-          { imageUrl: "/dining/feterty-3.jpg", descriptionKey: "eateries.feterty.detail3" },
-          { imageUrl: "/dining/feterty-4.jpg", descriptionKey: "eateries.feterty.detail4" }
+          { imageUrl: "https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg", descriptionKey: "eateries.feterty.detail1" },
+          { imageUrl: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg", descriptionKey: "eateries.feterty.detail2" },
+          { imageUrl: "https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg", descriptionKey: "eateries.feterty.detail3" },
+          { imageUrl: "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg", descriptionKey: "eateries.feterty.detail4" }
         ]
       },
       {
-        id: "hans", name: "Hans", logoUrl: "/brands/hans edited.webp", phone: "+20-123-456-7894",
+        id: "hans", name: "Hans", logoUrl: "https://images.pexels.com/photos/3676531/pexels-photo-3676531.jpeg", phone: "+20-123-456-7894",
         details: [
-          { imageUrl: "/dining/hans-1.jpg", descriptionKey: "eateries.hans.detail1" },
-          { imageUrl: "/dining/hans-2.jpg", descriptionKey: "eateries.hans.detail2" },
-          { imageUrl: "/dining/hans-3.jpg", descriptionKey: "eateries.hans.detail3" },
-          { imageUrl: "/dining/hans-4.jpg", descriptionKey: "eateries.hans.detail4" }
+          { imageUrl: "https://images.pexels.com/photos/1833337/pexels-photo-1833337.jpeg", descriptionKey: "eateries.hans.detail1" },
+          { imageUrl: "https://images.pexels.com/photos/1010519/pexels-photo-1010519.jpeg", descriptionKey: "eateries.hans.detail2" },
+          { imageUrl: "https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg", descriptionKey: "eateries.hans.detail3" },
+          { imageUrl: "https://images.pexels.com/photos/1855214/pexels-photo-1855214.jpeg", descriptionKey: "eateries.hans.detail4" }
         ]
       },
       {

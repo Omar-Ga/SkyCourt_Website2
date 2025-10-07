@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { Building2, Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { NAV_ITEMS, type NavItem } from '../data/navigation';
 
 export default function Header({ show }: { show: boolean }) {
   const { t, i18n } = useTranslation();
@@ -13,16 +14,7 @@ export default function Header({ show }: { show: boolean }) {
     i18n.changeLanguage(newLang);
   };
 
-  const navItems = [
-    { label: t('nav_home'), href: '/', isRoute: true },
-    { label: t('nav_brands'), href: '#brands', isRoute: false },
-    { label: t('nav_services'), href: '#services', isRoute: false },
-    { label: t('nav_dining'), href: '/dining', isRoute: true },
-    { label: t('nav_location'), href: '#location', isRoute: false },
-    { label: t('nav_contact'), href: '#contact', isRoute: false },
-  ];
-
-  const NavLink = ({ item, index }: { item: typeof navItems[0], index: number }) => {
+  const NavLink = ({ item, index }: { item: NavItem, index: number }) => {
     const commonProps = {
       className: "text-black/80 hover:text-black text-sm font-medium tracking-wide relative group transition-colors",
       initial: { opacity: 0, y: -10 },
@@ -34,7 +26,7 @@ export default function Header({ show }: { show: boolean }) {
       return (
         <motion.div {...commonProps}>
           <Link to={item.href}>
-            {item.label}
+            {t(item.key)}
             <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full" />
           </Link>
         </motion.div>
@@ -43,11 +35,11 @@ export default function Header({ show }: { show: boolean }) {
 
     return (
       <motion.a
-        key={item.label}
+        key={item.key}
         href={item.href}
         {...commonProps}
       >
-        {item.label}
+        {t(item.key)}
         <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full" />
       </motion.a>
     );
@@ -72,7 +64,7 @@ export default function Header({ show }: { show: boolean }) {
 
         <div className="relative max-w-7xl mx-auto px-6 flex items-center justify-between">
           <motion.a
-            href="/" // Changed to '/' for home route
+            href="/"
             className="flex items-center gap-3 group"
           >
             <Building2 className="w-8 h-8 text-black" strokeWidth={1.5} />
@@ -82,8 +74,8 @@ export default function Header({ show }: { show: boolean }) {
           </motion.a>
 
           <nav className="hidden md:flex items-center gap-8">
-            {navItems.map((item, index) => (
-              <NavLink key={item.label} item={item} index={index} />
+            {NAV_ITEMS.map((item, index) => (
+              <NavLink key={item.key} item={item} index={index} />
             ))}
             <button
               onClick={toggleLanguage}
@@ -111,24 +103,24 @@ export default function Header({ show }: { show: boolean }) {
           exit={{ opacity: 0 }}
         >
           <nav className="flex flex-col items-center gap-8">
-            {navItems.map((item) => (
+            {NAV_ITEMS.map((item) => (
               item.isRoute ? (
                 <Link
-                  key={item.label}
+                  key={item.key}
                   to={item.href}
                   className="serif text-3xl text-black/80 hover:text-black transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  {item.label}
+                  {t(item.key)}
                 </Link>
               ) : (
                 <a
-                  key={item.label}
+                  key={item.key}
                   href={item.href}
                   className="serif text-3xl text-black/80 hover:text-black transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  {item.label}
+                  {t(item.key)}
                 </a>
               )
             ))}

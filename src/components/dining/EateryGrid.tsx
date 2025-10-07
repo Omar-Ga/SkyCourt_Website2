@@ -18,11 +18,12 @@ export const EateryLogoGrid = ({ eateries, onEateryClick }: EateryLogoGridProps)
           whileHover={!isMobile ? { scale: 1.08, y: -5 } : {}}
           whileTap={{ scale: 0.95 }}
           onClick={() => onEateryClick(eatery)}
-          className="cursor-pointer aspect-square rounded-2xl bg-white p-6 shadow-lg transition-shadow hover:shadow-2xl"
+          className="cursor-pointer aspect-square rounded-2xl bg-white p-6 shadow-lg transition-shadow hover:shadow-2xl flex flex-col"
         >
-          <div className="flex h-full w-full items-center justify-center">
+          <div className="flex-grow flex h-full w-full items-center justify-center">
             <img src={eatery.logoUrl} alt={eatery.name} className="h-full w-full object-contain" />
           </div>
+          <p className="text-center font-semibold mt-4">{eatery.name}</p>
         </motion.div>
       ))}
     </div>
