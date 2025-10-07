@@ -10,6 +10,8 @@ const images = [
   '/hero section/hero1.webp',
   '/hero section/Glowing_skycourt.webp',
   '/hero section/Shopping_Carts.webp',
+  '/hero section/wideview.webp',
+  '/hero section/cafe-with-waterfall.webp',
 ];
 
 const Hero = forwardRef<HTMLElement>((_, ref) => {
