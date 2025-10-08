@@ -1,5 +1,5 @@
 // src/components/FeatureItem.tsx
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { Sparkles } from 'lucide-react';
 
 // Assuming iconMap is defined and exported from Features.tsx
@@ -13,13 +13,13 @@ interface FeatureItemProps {
 export function FeatureItem({ feature, isActive }: FeatureItemProps) {
   const Icon = iconMap[feature.key] || Sparkles;
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0.5, y: 30 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
   };
 
   return (
-    <motion.div variants={itemVariants} initial="hidden" whileInView="visible" viewport={{ amount: 0.4 }}>
+    <motion.div variants={itemVariants} initial="hidden" whileInView="visible" viewport={{ amount: 0.8 }}>
       <div className="flex items-start gap-6">
         <motion.div
           className="flex-shrink-0 w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300"
@@ -30,7 +30,7 @@ export function FeatureItem({ feature, isActive }: FeatureItemProps) {
                       }}        >
           <Icon className="w-6 h-6" strokeWidth={1.5} />
         </motion.div>
-        <div className="relative pt-1">
+        <div className="relative pt-1 pl-4 bg-[rgb(150,215,163,0.32)] rounded-lg w-[340px] h-32 flex-shrink-0">
           <h3 className="serif text-2xl md:text-3xl font-medium text-black mb-3">
             {feature.title}
           </h3>

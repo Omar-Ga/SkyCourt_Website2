@@ -26,10 +26,10 @@ export default function Dining() {
           transition={{ duration: 0.7 }}
         >
           <h1 className="serif mb-4 text-5xl font-medium tracking-tight text-black md:text-7xl">
-            {t('dining_title')}
+            {t('dining_headline')}
           </h1>
           <p className="mx-auto max-w-2xl text-lg text-black/60">
-            {t('dining_subtitle')}
+            {t('dining_subheadline')}
           </p>
         </motion.div>
 

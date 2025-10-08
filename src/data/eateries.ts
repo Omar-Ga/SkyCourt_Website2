@@ -5,7 +5,7 @@ export interface EateryDetail {
 
     export interface Eatery {
       id: string;
-      name: string;
+      nameKey: string;
       logoUrl: string;
       phone: string;
       details: EateryDetail[];
@@ -13,183 +13,84 @@ export interface EateryDetail {
 
     export const eateries: Eatery[] = [
       {
-        id: "kfc", name: "KFC", logoUrl: "https://images.pexels.com/photos/13998533/pexels-photo-13998533.jpeg", phone: "+20-123-456-7890",
+        id: "kfc", nameKey: "eateries.kfc.name", logoUrl: "/dining/kfc/logo.png", phone: "+20-123-456-7890",
         details: [
-          { imageUrl: "https://images.pexels.com/photos/2338407/pexels-photo-2338407.jpeg", descriptionKey: "eateries.kfc.detail1" },
-          { imageUrl: "https://images.pexels.com/photos/6726065/pexels-photo-6726065.jpeg", descriptionKey: "eateries.kfc.detail2" },
-          { imageUrl: "https://images.pexels.com/photos/2725744/pexels-photo-2725744.jpeg", descriptionKey: "eateries.kfc.detail3" },
-          { imageUrl: "https://images.pexels.com/photos/1157401/pexels-photo-1157401.jpeg", descriptionKey: "eateries.kfc.detail4" }
+          { imageUrl: "/dining/kfc/1.webp", descriptionKey: "eateries.kfc.detail1" },
+          { imageUrl: "/dining/kfc/2.webp", descriptionKey: "eateries.kfc.detail2" },
+          { imageUrl: "/dining/kfc/3.webp", descriptionKey: "eateries.kfc.detail3" },
+          { imageUrl: "/dining/kfc/4.webp", descriptionKey: "eateries.kfc.detail4" }
         ]
       },
       {
-        id: "pizza-hut", name: "Pizza Hut", logoUrl: "https://images.pexels.com/photos/1146760/pexels-photo-1146760.jpeg", phone: "+20-123-456-7891",
+        id: "hardees", nameKey: "eateries.hardees.name", logoUrl: "/dining/hardees/logo.jpg", phone: "+20-123-456-7892",
         details: [
-          { imageUrl: "https://images.pexels.com/photos/1653877/pexels-photo-1653877.jpeg", descriptionKey: "eateries.pizza_hut.detail1" },
-          { imageUrl: "https://images.pexels.com/photos/2147491/pexels-photo-2147491.jpeg", descriptionKey: "eateries.pizza_hut.detail2" },
-          { imageUrl: "https://images.pexels.com/photos/367915/pexels-photo-367915.jpeg", descriptionKey: "eateries.pizza_hut.detail3" },
-          { imageUrl: "https://images.pexels.com/photos/8254739/pexels-photo-8254739.jpeg", descriptionKey: "eateries.pizza_hut.detail4" }
+          { imageUrl: "/dining/hardees/1.webp", descriptionKey: "eateries.hardees.detail1" },
+          { imageUrl: "/dining/hardees/2.webp", descriptionKey: "eateries.hardees.detail2" },
+          { imageUrl: "/dining/hardees/3.webp", descriptionKey: "eateries.hardees.detail3" },
+          { imageUrl: "/dining/hardees/4.webp", descriptionKey: "eateries.hardees.detail4" }
         ]
       },
       {
-        id: "hardees", name: "Hardees", logoUrl: "https://images.pexels.com/photos/1639562/pexels-photo-1639562.jpeg", phone: "+20-123-456-7892",
+        id: "balbaa-village", nameKey: "eateries.balbaa-village.name", logoUrl: "/dining/balbaa/logo.png", phone: "+20-123-456-7898",
         details: [
-          { imageUrl: "https://images.pexels.com/photos/1633578/pexels-photo-1633578.jpeg", descriptionKey: "eateries.hardees.detail1" },
-          { imageUrl: "https://images.pexels.com/photos/2983101/pexels-photo-2983101.jpeg", descriptionKey: "eateries.hardees.detail2" },
-          { imageUrl: "https://images.pexels.com/photos/1199957/pexels-photo-1199957.jpeg", descriptionKey: "eateries.hardees.detail3" },
-          { imageUrl: "https://images.pexels.com/photos/2271107/pexels-photo-2271107.jpeg", descriptionKey: "eateries.hardees.detail4" }
+          { imageUrl: "/dining/balbaa/1.webp", descriptionKey: "eateries.balbaa-village.detail1" },
+          { imageUrl: "/dining/balbaa/2.webp", descriptionKey: "eateries.balbaa-village.detail2" },
+          { imageUrl: "/dining/balbaa/3.webp", descriptionKey: "eateries.balbaa-village.detail3" },
+          { imageUrl: "/dining/balbaa/4.webp", descriptionKey: "eateries.balbaa-village.detail4" }
         ]
       },
       {
-        id: "feterty", name: "Ftirty", logoUrl: "https://images.pexels.com/photos/1566837/pexels-photo-1566837.jpeg", phone: "+20-123-456-7893",
+        id: "blaban", nameKey: "eateries.blaban.name", logoUrl: "/dining/blaban/logo.jpg", phone: "+20-123-456-7895",
         details: [
-          { imageUrl: "https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg", descriptionKey: "eateries.feterty.detail1" },
-          { imageUrl: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg", descriptionKey: "eateries.feterty.detail2" },
-          { imageUrl: "https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg", descriptionKey: "eateries.feterty.detail3" },
-          { imageUrl: "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg", descriptionKey: "eateries.feterty.detail4" }
+          { imageUrl: "/dining/blaban/2 (3).webp", descriptionKey: "eateries.blaban.detail1" },
+          { imageUrl: "/dining/blaban/3 (3).webp", descriptionKey: "eateries.blaban.detail2" },
+          { imageUrl: "/dining/blaban/4 (1).webp", descriptionKey: "eateries.blaban.detail3" },
+          { imageUrl: "/dining/blaban/images (3).webp", descriptionKey: "eateries.blaban.detail4" }
         ]
       },
       {
-        id: "hans", name: "Hans", logoUrl: "https://images.pexels.com/photos/3676531/pexels-photo-3676531.jpeg", phone: "+20-123-456-7894",
+        id: "khatab", nameKey: "eateries.khatab.name", logoUrl: "/dining/khatab/logo.jpg", phone: "+20-123-456-7904",
         details: [
-          { imageUrl: "https://images.pexels.com/photos/1833337/pexels-photo-1833337.jpeg", descriptionKey: "eateries.hans.detail1" },
-          { imageUrl: "https://images.pexels.com/photos/1010519/pexels-photo-1010519.jpeg", descriptionKey: "eateries.hans.detail2" },
-          { imageUrl: "https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg", descriptionKey: "eateries.hans.detail3" },
-          { imageUrl: "https://images.pexels.com/photos/1855214/pexels-photo-1855214.jpeg", descriptionKey: "eateries.hans.detail4" }
+          { imageUrl: "/dining/khatab/1.webp", descriptionKey: "eateries.khatab.detail1" },
+          { imageUrl: "/dining/khatab/2.webp", descriptionKey: "eateries.khatab.detail2" },
+          { imageUrl: "/dining/khatab/3.webp", descriptionKey: "eateries.khatab.detail3" },
+          { imageUrl: "/dining/khatab/4.webp", descriptionKey: "eateries.khatab.detail4" }
         ]
       },
       {
-        id: "blaban", name: "Blaban", logoUrl: "/brands/blaban edited.webp", phone: "+20-123-456-7895",
+        id: "donia-al-gambary", nameKey: "eateries.donia-al-gambary.name", logoUrl: "/dining/donia al gambary/logo.png", phone: "+20-123-456-7910",
         details: [
-          { imageUrl: "/dining/blaban-1.jpg", descriptionKey: "eateries.blaban.detail1" },
-          { imageUrl: "/dining/blaban-2.jpg", descriptionKey: "eateries.blaban.detail2" },
-          { imageUrl: "/dining/blaban-3.jpg", descriptionKey: "eateries.blaban.detail3" },
-          { imageUrl: "/dining/blaban-4.jpg", descriptionKey: "eateries.blaban.detail4" }
+          { imageUrl: "/dining/donia al gambary/1.webp", descriptionKey: "eateries.donia-al-gambary.detail1" },
+          { imageUrl: "/dining/donia al gambary/2.webp", descriptionKey: "eateries.donia-al-gambary.detail2" },
+          { imageUrl: "/dining/donia al gambary/3.webp", descriptionKey: "eateries.donia-al-gambary.detail3" },
+          { imageUrl: "/dining/donia al gambary/4.webp", descriptionKey: "eateries.donia-al-gambary.detail4" }
         ]
       },
       {
-        id: "ammar-auto", name: "Ammar Auto", logoUrl: "/brands/ammar-auto.webp", phone: "+20-123-456-7896",
+        id: "koshary-al-tahrir", nameKey: "eateries.koshary-al-tahrir.name", logoUrl: "/dining/koshary el tahrir/logo.jpg", phone: "+20-123-456-7911",
         details: [
-          { imageUrl: "/dining/ammar-auto-1.jpg", descriptionKey: "eateries.ammar-auto.detail1" },
-          { imageUrl: "/dining/ammar-auto-2.jpg", descriptionKey: "eateries.ammar-auto.detail2" },
-          { imageUrl: "/dining/ammar-auto-3.jpg", descriptionKey: "eateries.ammar-auto.detail3" },
-          { imageUrl: "/dining/ammar-auto-4.jpg", descriptionKey: "eateries.ammar-auto.detail4" }
+          { imageUrl: "/dining/koshary el tahrir/1.webp", descriptionKey: "eateries.koshary-al-tahrir.detail1" },
+          { imageUrl: "/dining/koshary el tahrir/2.webp", descriptionKey: "eateries.koshary-al-tahrir.detail2" },
+          { imageUrl: "/dining/koshary el tahrir/3.webp", descriptionKey: "eateries.koshary-al-tahrir.detail3" },
+          { imageUrl: "/dining/koshary el tahrir/4.webp", descriptionKey: "eateries.koshary-al-tahrir.detail4" }
         ]
       },
       {
-        id: "b-tech", name: "B-Tech", logoUrl: "/brands/b-tech.webp", phone: "+20-123-456-7897",
+        id: "primos-pizza", nameKey: "eateries.primos-pizza.name", logoUrl: "/dining/primos pizza/logo.jpg", phone: "+20-123-456-7912",
         details: [
-          { imageUrl: "/dining/b-tech-1.jpg", descriptionKey: "eateries.b-tech.detail1" },
-          { imageUrl: "/dining/b-tech-2.jpg", descriptionKey: "eateries.b-tech.detail2" },
-          { imageUrl: "/dining/b-tech-3.jpg", descriptionKey: "eateries.b-tech.detail3" },
-          { imageUrl: "/dining/b-tech-4.jpg", descriptionKey: "eateries.b-tech.detail4" }
+          { imageUrl: "/dining/primos pizza/1.jpeg", descriptionKey: "eateries.primos-pizza.detail1" },
+          { imageUrl: "/dining/primos pizza/2.jpeg", descriptionKey: "eateries.primos-pizza.detail2" },
+          { imageUrl: "/dining/primos pizza/3.jpeg", descriptionKey: "eateries.primos-pizza.detail3" },
+          { imageUrl: "/dining/primos pizza/4.jpeg", descriptionKey: "eateries.primos-pizza.detail4" }
         ]
       },
       {
-        id: "balbaa-village", name: "Balbaa Village", logoUrl: "/brands/balbaa-village.webp", phone: "+20-123-456-7898",
+        id: "pizza-hut", nameKey: "eateries.pizza-hut.name", logoUrl: "/dining/pizza hut/logo.jpg", phone: "+20-123-456-7891",
         details: [
-          { imageUrl: "/dining/balbaa-village-1.jpg", descriptionKey: "eateries.balbaa-village.detail1" },
-          { imageUrl: "/dining/balbaa-village-2.jpg", descriptionKey: "eateries.balbaa-village.detail2" },
-          { imageUrl: "/dining/balbaa-village-3.jpg", descriptionKey: "eateries.balbaa-village.detail3" },
-          { imageUrl: "/dining/balbaa-village-4.jpg", descriptionKey: "eateries.balbaa-village.detail4" }
-        ]
-      },
-      {
-        id: "bright-store", name: "Bright Store", logoUrl: "/brands/bright-store.webp", phone: "+20-123-456-7899",
-        details: [
-          { imageUrl: "/dining/bright-store-1.jpg", descriptionKey: "eateries.bright-store.detail1" },
-          { imageUrl: "/dining/bright-store-2.jpg", descriptionKey: "eateries.bright-store.detail2" },
-          { imageUrl: "/dining/bright-store-3.jpg", descriptionKey: "eateries.bright-store.detail3" },
-          { imageUrl: "/dining/bright-store-4.jpg", descriptionKey: "eateries.bright-store.detail4" }
-        ]
-      },
-      {
-        id: "dream-2000", name: "Dream 2000", logoUrl: "/brands/dream-2000.webp", phone: "+20-123-456-7900",
-        details: [
-          { imageUrl: "/dining/dream-2000-1.jpg", descriptionKey: "eateries.dream-2000.detail1" },
-          { imageUrl: "/dining/dream-2000-2.jpg", descriptionKey: "eateries.dream-2000.detail2" },
-          { imageUrl: "/dining/dream-2000-3.jpg", descriptionKey: "eateries.dream-2000.detail3" },
-          { imageUrl: "/dining/dream-2000-4.jpg", descriptionKey: "eateries.dream-2000.detail4" }
-        ]
-      },
-      {
-        id: "fathalla-market", name: "Fathalla Market", logoUrl: "/brands/fathalla-market.webp", phone: "+20-123-456-7901",
-        details: [
-          { imageUrl: "/dining/fathalla-market-1.jpg", descriptionKey: "eateries.fathalla-market.detail1" },
-          { imageUrl: "/dining/fathalla-market-2.jpg", descriptionKey: "eateries.fathalla-market.detail2" },
-          { imageUrl: "/dining/fathalla-market-3.jpg", descriptionKey: "eateries.fathalla-market.detail3" },
-          { imageUrl: "/dining/fathalla-market-4.jpg", descriptionKey: "eateries.fathalla-market.detail4" }
-        ]
-      },
-      {
-        id: "donia-el-gambary", name: "Donia El Gambary", logoUrl: "/brands/donia-el-gambary.webp", phone: "+20-123-456-7902",
-        details: [
-          { imageUrl: "/dining/donia-el-gambary-1.jpg", descriptionKey: "eateries.donia-el-gambary.detail1" },
-          { imageUrl: "/dining/donia-el-gambary-2.jpg", descriptionKey: "eateries.donia-el-gambary.detail2" },
-          { imageUrl: "/dining/donia-el-gambary-3.jpg", descriptionKey: "eateries.donia-el-gambary.detail3" },
-          { imageUrl: "/dining/donia-el-gambary-4.jpg", descriptionKey: "eateries.donia-el-gambary.detail4" }
-        ]
-      },
-      {
-        id: "hamed-el-basiony", name: "Hamed El Basiony", logoUrl: "/brands/hamed-el-basiony.webp", phone: "+20-123-456-7903",
-        details: [
-          { imageUrl: "/dining/hamed-el-basiony-1.jpg", descriptionKey: "eateries.hamed-el-basiony.detail1" },
-          { imageUrl: "/dining/hamed-el-basiony-2.jpg", descriptionKey: "eateries.hamed-el-basiony.detail2" },
-          { imageUrl: "/dining/hamed-el-basiony-3.jpg", descriptionKey: "eateries.hamed-el-basiony.detail3" },
-          { imageUrl: "/dining/hamed-el-basiony-4.jpg", descriptionKey: "eateries.hamed-el-basiony.detail4" }
-        ]
-      },
-      {
-        id: "khatab", name: "Khatab", logoUrl: "/brands/khatab.webp", phone: "+20-123-456-7904",
-        details: [
-          { imageUrl: "/dining/khatab-1.jpg", descriptionKey: "eateries.khatab.detail1" },
-          { imageUrl: "/dining/khatab-2.jpg", descriptionKey: "eateries.khatab.detail2" },
-          { imageUrl: "/dining/khatab-3.jpg", descriptionKey: "eateries.khatab.detail3" },
-          { imageUrl: "/dining/khatab-4.jpg", descriptionKey: "eateries.khatab.detail4" }
-        ]
-      },
-      {
-        id: "ragab-perfumes", name: "Ragab Perfumes", logoUrl: "/brands/ragab-perfumes.webp", phone: "+20-123-456-7905",
-        details: [
-          { imageUrl: "/dining/ragab-perfumes-1.jpg", descriptionKey: "eateries.ragab-perfumes.detail1" },
-          { imageUrl: "/dining/ragab-perfumes-2.jpg", descriptionKey: "eateries.ragab-perfumes.detail2" },
-          { imageUrl: "/dining/ragab-perfumes-3.jpg", descriptionKey: "eateries.ragab-perfumes.detail3" },
-          { imageUrl: "/dining/ragab-perfumes-4.jpg", descriptionKey: "eateries.ragab-perfumes.detail4" }
-        ]
-      },
-      {
-        id: "raya", name: "Raya", logoUrl: "/brands/raya.webp", phone: "+20-123-456-7906",
-        details: [
-          { imageUrl: "/dining/raya-1.jpg", descriptionKey: "eateries.raya.detail1" },
-          { imageUrl: "/dining/raya-2.jpg", descriptionKey: "eateries.raya.detail2" },
-          { imageUrl: "/dining/raya-3.jpg", descriptionKey: "eateries.raya.detail3" },
-          { imageUrl: "/dining/raya-4.jpg", descriptionKey: "eateries.raya.detail4" }
-        ]
-      },
-      {
-        id: "smart-furniture", name: "Smart Furniture", logoUrl: "/brands/smart-furniture.webp", phone: "+20-123-456-7907",
-        details: [
-          { imageUrl: "/dining/smart-furniture-1.jpg", descriptionKey: "eateries.smart-furniture.detail1" },
-          { imageUrl: "/dining/smart-furniture-2.jpg", descriptionKey: "eateries.smart-furniture.detail2" },
-          { imageUrl: "/dining/smart-furniture-3.jpg", descriptionKey: "eateries.smart-furniture.detail3" },
-          { imageUrl: "/dining/smart-furniture-4.jpg", descriptionKey: "eateries.smart-furniture.detail4" }
-        ]
-      },
-      {
-        id: "el-tahrir", name: "El Tahrir", logoUrl: "/brands/el-tahrir.webp", phone: "+20-123-456-7908",
-        details: [
-          { imageUrl: "/dining/el-tahrir-1.jpg", descriptionKey: "eateries.el-tahrir.detail1" },
-          { imageUrl: "/dining/el-tahrir-2.jpg", descriptionKey: "eateries.el-tahrir.detail2" },
-          { imageUrl: "/dining/el-tahrir-3.jpg", descriptionKey: "eateries.el-tahrir.detail3" },
-          { imageUrl: "/dining/el-tahrir-4.jpg", descriptionKey: "eateries.el-tahrir.detail4" }
-        ]
-      },
-      {
-        id: "zizo-&-lavish", name: "Zizo & Lavish", logoUrl: "/brands/zizo-&-lavish.webp", phone: "+20-123-456-7909",
-        details: [
-          { imageUrl: "/dining/zizo-&-lavish-1.jpg", descriptionKey: "eateries.zizo-&-lavish.detail1" },
-          { imageUrl: "/dining/zizo-&-lavish-2.jpg", descriptionKey: "eateries.zizo-&-lavish.detail2" },
-          { imageUrl: "/dining/zizo-&-lavish-3.jpg", descriptionKey: "eateries.zizo-&-lavish.detail3" },
-          { imageUrl: "/dining/zizo-&-lavish-4.jpg", descriptionKey: "eateries.zizo-&-lavish.detail4" }
+          { imageUrl: "/dining/pizza hut/1.jpg", descriptionKey: "eateries.pizza-hut.detail1" },
+          { imageUrl: "/dining/pizza hut/2.jpg", descriptionKey: "eateries.pizza-hut.detail2" },
+          { imageUrl: "/dining/pizza hut/3.jpg", descriptionKey: "eateries.pizza-hut.detail3" },
+          { imageUrl: "/dining/pizza hut/4.jpg", descriptionKey: "eateries.pizza-hut.detail4" }
         ]
       }
     ];

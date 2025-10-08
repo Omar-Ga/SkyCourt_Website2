@@ -1,7 +1,7 @@
 import { useState, useEffect, forwardRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Mouse } from 'lucide-react';
 import { RotatingText } from './ui/shadcn-io/rotating-text';
 import { Link } from 'react-router-dom';
 import { NAV_ITEMS, type NavItem } from '../data/navigation';
@@ -27,7 +27,7 @@ const Hero = forwardRef<HTMLElement>((_, ref) => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 3000); // 2s fade + 5s visible
+    }, 5000); // 2s fade + 5s visible
 
     return () => clearInterval(interval);
   }, []);
@@ -134,8 +134,18 @@ const Hero = forwardRef<HTMLElement>((_, ref) => {
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 1 }}
       >
-        <div className="w-px h-16 bg-white/50 draw-line pulse-gentle" />
-        <ChevronDown className="w-6 h-6 text-white/70 animate-bounce" />
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{
+            duration: 1.5,
+            repeat: Infinity,
+            repeatType: "loop",
+          }}
+          className="flex flex-col items-center"
+        >
+          <Mouse className="w-8 h-8 text-white/70" />
+          <ChevronDown className="w-6 h-6 text-white/70" />
+        </motion.div>
       </motion.div>
     </section>
   );

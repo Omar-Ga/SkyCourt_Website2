@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useInView } from 'framer-motion';
-import CustomCursor from '../components/CustomCursor';
+
 import Header from '../components/Header';
 import Hero from '../components/Hero';
 import Features from '../components/Features';
@@ -25,7 +25,7 @@ export default function Home() {
   return (
     <>
       <div className="grain-overlay" />
-      <CustomCursor />
+
       <Header show={!heroInView} />
       <main>
         <Hero ref={heroRef} />

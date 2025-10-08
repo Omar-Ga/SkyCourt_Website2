@@ -23,18 +23,19 @@ export default function Features() {
   });
 
   return (
-    <section className="relative py-32 px-6" id="features">
+    <section className="relative py-32 px-6 bg-[#c4d9c8]" id="features">
       <div className="max-w-7xl mx-auto">
         <motion.div
           className="text-center mb-24"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{}}
+          viewport={{}} 
           transition={{ duration: 0.8 }}
         >
           <h2 className="serif text-5xl md:text-7xl font-light text-black mb-6">
             {t('why_choose_skycourt')}
           </h2>
+
           <p className="text-lg text-black/60 max-w-2xl mx-auto">
             {t('experience_shopping')}
           </p>

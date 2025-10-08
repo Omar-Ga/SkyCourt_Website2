@@ -29,12 +29,12 @@ function RotatingText({
   const [index, setIndex] = React.useState(0);
  
   React.useEffect(() => {
-    if (!Array.isArray(text)) return;
-    const interval = setInterval(() => {
+    if (!Array.isArray(text) || text.length <= 1) return;
+    const timeout = setTimeout(() => {
       setIndex((prevIndex) => (prevIndex + 1) % text.length);
     }, duration);
-    return () => clearInterval(interval);
-  }, [text, duration]);
+    return () => clearTimeout(timeout);
+  }, [index, text, duration]);
  
   const currentText = Array.isArray(text) ? text[index] : text;
  
