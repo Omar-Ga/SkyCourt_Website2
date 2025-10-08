@@ -9,7 +9,7 @@ import { NAV_ITEMS, type NavItem } from '../data/navigation';
 const images = [
   '/hero section/hero1.webp',
   '/hero section/Glowing_skycourt.webp',
-  '/hero section/Shopping_Carts.webp',
+  '/hero section/entrance darker.webp',
   '/hero section/wideview.webp',
   '/hero section/cafe-with-waterfall.webp',
 ];

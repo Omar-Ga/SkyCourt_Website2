@@ -41,7 +41,14 @@ export default function Features() {
         </motion.div>
         <div className="relative grid md:grid-cols-2 gap-12 items-start">
           <div className="h-[300px] md:h-[600px] overflow-hidden rounded-2xl md:sticky top-32">
-            <img src="/home_images/entrance darker.webp" alt="SkyCourt Interior" className="w-full h-full object-cover" loading="lazy" />
+                        <video
+              src="/herosection_viddd.webm"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover"
+            />
           </div>
           <div ref={targetRef} className="relative space-y-24 md:pt-20">
             {features.map((feature, index) => (
