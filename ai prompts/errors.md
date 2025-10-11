@@ -1,22 +1,48 @@
-[{
-	"resource": "/C:/Users/Pc/Downloads/project/src/components/FeatureItem.tsx",
-	"owner": "typescript",
-	"code": "2322",
-	"severity": 8,
-	"message": "Type '{ hidden: { opacity: number; y: number; }; visible: { opacity: number; y: number; transition: { duration: number; ease: string; }; }; }' is not assignable to type 'Variants'.\n  Property 'visible' is incompatible with index signature.\n    Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'Variant'.\n      Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type 'TargetAndTransition'.\n        Type '{ opacity: number; y: number; transition: { duration: number; ease: string; }; }' is not assignable to type '{ transition?: Transition<any> | undefined; transitionEnd?: ResolvedValues | undefined; }'.\n          Types of property 'transition' are incompatible.\n            Type '{ duration: number; ease: string; }' is not assignable to type 'Transition<any> | undefined'.\n              Type '{ duration: number; ease: string; }' is not assignable to type 'TransitionWithValueOverrides<any>'.\n                Type '{ duration: number; ease: string; }' is not assignable to type 'ValueAnimationTransition<any>'.\n                  Types of property 'ease' are incompatible.\n                    Type 'string' is not assignable to type 'Easing | Easing[] | undefined'.",
-	"source": "ts",
-	"startLineNumber": 22,
-	"startColumn": 17,
-	"endLineNumber": 22,
-	"endColumn": 25,
-	"relatedInformation": [
-		{
-			"startLineNumber": 1800,
-			"startColumn": 5,
-			"endLineNumber": 1800,
-			"endColumn": 13,
-			"message": "The expected type comes from property 'variants' which is declared here on type 'IntrinsicAttributes & Omit<HTMLMotionProps<\"div\">, \"ref\"> & RefAttributes<HTMLDivElement>'",
-			"resource": "/c:/Users/Pc/Downloads/project/node_modules/motion-dom/dist/index.d.ts"
-		}
-	]
-}]
+lease ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+warnOnce @ chunk-XAPJKW3L.js?v=d162e211:195
+measure @ chunk-XAPJKW3L.js?v=d162e211:9556
+measure @ chunk-XAPJKW3L.js?v=d162e211:9563
+measureAll @ chunk-XAPJKW3L.js?v=d162e211:9592
+triggerCallback @ chunk-XAPJKW3L.js?v=d162e211:352
+process @ chunk-XAPJKW3L.js?v=d162e211:385
+processBatch @ chunk-XAPJKW3L.js?v=d162e211:426
+requestAnimationFrame
+wake @ chunk-XAPJKW3L.js?v=d162e211:443
+acc.<computed> @ chunk-XAPJKW3L.js?v=d162e211:450
+mount @ chunk-XAPJKW3L.js?v=d162e211:8114
+defaultParent @ chunk-XAPJKW3L.js?v=d162e211:9082
+ProjectionNode @ chunk-XAPJKW3L.js?v=d162e211:8020
+createProjectionNode @ chunk-XAPJKW3L.js?v=d162e211:5363
+useVisualElement @ chunk-XAPJKW3L.js?v=d162e211:5323
+MotionDOMComponent @ chunk-XAPJKW3L.js?v=d162e211:5407
+renderWithHooks @ chunk-QT63QQJV.js?v=d162e211:11548
+updateForwardRef @ chunk-QT63QQJV.js?v=d162e211:14325
+beginWork @ chunk-QT63QQJV.js?v=d162e211:15946
+beginWork$1 @ chunk-QT63QQJV.js?v=d162e211:19753
+performUnitOfWork @ chunk-QT63QQJV.js?v=d162e211:19198
+workLoopSync @ chunk-QT63QQJV.js?v=d162e211:19137
+renderRootSync @ chunk-QT63QQJV.js?v=d162e211:19116
+performConcurrentWorkOnRoot @ chunk-QT63QQJV.js?v=d162e211:18678
+workLoop @ chunk-QT63QQJV.js?v=d162e211:197
+flushWork @ chunk-QT63QQJV.js?v=d162e211:176
+performWorkUntilDeadline @ chunk-QT63QQJV.js?v=d162e211:384Understand this warning
+@use-gesture_react.js?v=2d3e8bac:804 [@use-gesture]: The drag target has its `touch-action` style property set to `auto`. It is recommended to add `touch-action: 'none'` so that the drag gesture behaves correctly on touch-enabled devices. For more information read this: https://use-gesture.netlify.app/docs/extras/#touch-action.
+
+This message will only show in development mode. It won't appear in production. If this is intended, you can ignore it. <div class=​"relative h-[70vh]​ min-h-[600px]​">​…​</div>​
+setupPointer @ @use-gesture_react.js?v=2d3e8bac:804
+pointerDown @ @use-gesture_react.js?v=2d3e8bac:684
+callCallback2 @ chunk-QT63QQJV.js?v=d162e211:3674
+invokeGuardedCallbackDev @ chunk-QT63QQJV.js?v=d162e211:3699
+invokeGuardedCallback @ chunk-QT63QQJV.js?v=d162e211:3733
+invokeGuardedCallbackAndCatchFirstError @ chunk-QT63QQJV.js?v=d162e211:3736
+executeDispatch @ chunk-QT63QQJV.js?v=d162e211:7014
+processDispatchQueueItemsInOrder @ chunk-QT63QQJV.js?v=d162e211:7034
+processDispatchQueue @ chunk-QT63QQJV.js?v=d162e211:7043
+dispatchEventsForPlugins @ chunk-QT63QQJV.js?v=d162e211:7051
+(anonymous) @ chunk-QT63QQJV.js?v=d162e211:7174
+batchedUpdates$1 @ chunk-QT63QQJV.js?v=d162e211:18913
+batchedUpdates @ chunk-QT63QQJV.js?v=d162e211:3579
+dispatchEventForPluginEventSystem @ chunk-QT63QQJV.js?v=d162e211:7173
+dispatchEventWithEnableCapturePhaseSelectiveHydrationWithoutDiscreteEventReplay @ chunk-QT63QQJV.js?v=d162e211:5478
+dispatchEvent @ chunk-QT63QQJV.js?v=d162e211:5472
+dispatchDiscreteEvent @ chunk-QT63QQJV.js?v=d162e211:5449Understand this warning

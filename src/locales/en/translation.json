@@ -2,59 +2,144 @@
   "home": "Home",
   "why_choose_skycourt": "Why Choose SkyCourt?",
   "experience_shopping": "Experience shopping like never before with our world-class amenities and services",
-  
   "features": [
-    { "key": "premium_shopping", "title": "Premium Shopping", "description": "Discover over 50 premium brands and local favorites all under one roof" },
-    { "key": "prime_location", "title": "Prime Location", "description": "Strategically located in one of the city's most luxurious and accessible districts" },
-    { "key": "always_open", "title": "Always Open", "description": "Experience SkyCourt 24/7, ensuring convenience at any time" },
-    { "key": "safe_environment", "title": "Safe Environment", "description": "24/7 security and family-friendly atmosphere for peace of mind" },
-    { "key": "modern_amenities", "title": "Modern Amenities", "description": "Enjoy a comfortable and convenient experience with our modern facilities" },
-    { "key": "convenient_parking", "title": "Convenient Parking", "description": "Dedicated and easily accessible parking spaces for all our visitors" }
+    {
+      "key": "premium_shopping",
+      "title": "Premium Shopping",
+      "description": "Discover over 50 premium brands and local favorites all under one roof"
+    },
+    {
+      "key": "prime_location",
+      "title": "Prime Location",
+      "description": "Strategically located in one of the city's most luxurious and accessible districts"
+    },
+    {
+      "key": "always_open",
+      "title": "Always Open",
+      "description": "Experience SkyCourt 24/7, ensuring convenience at any time"
+    },
+    {
+      "key": "safe_environment",
+      "title": "Safe Environment",
+      "description": "24/7 security and family-friendly atmosphere for peace of mind"
+    },
+    {
+      "key": "modern_amenities",
+      "title": "Modern Amenities",
+      "description": "Enjoy a comfortable and convenient experience with our modern facilities"
+    },
+    {
+      "key": "convenient_parking",
+      "title": "Convenient Parking",
+      "description": "Dedicated and easily accessible parking spaces for all our visitors"
+    }
   ],
-
   "rotating_texts": [
     "50+ premium shops and brands.",
     "all your favorite brands.",
     "unforgettable moments."
   ],
-
   "iconic_brands": "Iconic brands at SkyCourt",
-
   "brands": [
-    { "name": "Ammar Auto" },
-    { "name": "B-Tech" },
-    { "name": "Balbaa Village" },
-    { "name": "Blaban" },
-    { "name": "Bright Store" },
-    { "name": "Dream 2000" },
-    { "name": "Fathalla Market" },
-    { "name": "Ftirty" },
-    { "name": "Donia El Gambary" },
-    { "name": "Hamed El Basiony" },
-    { "name": "Hans" },
-    { "name": "Hardees" },
-    { "name": "KFC" },
-    { "name": "Khatab" },
-    { "name": "Pizza Hut" },
-    { "name": "Ragab Perfumes" },
-    { "name": "Raya" },
-    { "name": "Smart Furniture" },
-    { "name": "El Tahrir" },
-    { "name": "Zizo & Lavish" }
+    {
+      "name": "Ammar Auto"
+    },
+    {
+      "name": "B-Tech"
+    },
+    {
+      "name": "Balbaa Village"
+    },
+    {
+      "name": "Blaban"
+    },
+    {
+      "name": "Bright Store"
+    },
+    {
+      "name": "Dream 2000"
+    },
+    {
+      "name": "Fathalla Market"
+    },
+    {
+      "name": "Ftirty"
+    },
+    {
+      "name": "Donia El Gambary"
+    },
+    {
+      "name": "Hamed El Basiony"
+    },
+    {
+      "name": "Hans"
+    },
+    {
+      "name": "Hardees"
+    },
+    {
+      "name": "KFC"
+    },
+    {
+      "name": "Khatab"
+    },
+    {
+      "name": "Pizza Hut"
+    },
+    {
+      "name": "Ragab Perfumes"
+    },
+    {
+      "name": "Raya"
+    },
+    {
+      "name": "Smart Furniture"
+    },
+    {
+      "name": "El Tahrir"
+    },
+    {
+      "name": "Zizo & Lavish"
+    }
   ],
-
   "services": [
-    { "title": "Safe & Fun Kids Area", "description": "Enjoy peace of mind with our fully enclosed and supervised play space for your children.", "image": "/home_images/kids_area.webp" },
-    { "title": "24-Hour Supermarket", "description": "All your needs, anytime. Our supermarket is open 24/7 for your convenience.", "image": "/home_images/supermarket.webp", "objectPosition": "top" },
-    { "title": "Cafes & Eateries", "description": "From a quick coffee to a relaxing lunch, choose from our diverse selection of cafes.", "image": "/home_images/open_setting_edited.webp" }
+    {
+      "title": "Safe & Fun Kids Area",
+      "description": "Enjoy peace of mind with our fully enclosed and supervised play space for your children.",
+      "image": "/home_images/kids_area.webp"
+    },
+    {
+      "title": "24-Hour Supermarket",
+      "description": "All your needs, anytime. Our supermarket is open 24/7 for your convenience.",
+      "image": "/home_images/supermarket.webp",
+      "objectPosition": "top"
+    },
+    {
+      "title": "Cafes & Eateries",
+      "description": "From a quick coffee to a relaxing lunch, choose from our diverse selection of cafes.",
+      "image": "/home_images/open_setting_edited.webp"
+    }
   ],
-
   "testimonials": [
-    { "name": "Sarah Ahmed", "rating": 5, "comment": "SkyCourt has everything I need in one place. The kids area is fantastic and the variety of stores is impressive!", "location": "Cairo" },
-    { "name": "Mohamed Hassan", "rating": 5, "comment": "Great shopping experience with excellent food options. The 24-hour supermarket is incredibly convenient.", "location": "Giza" },
-    { "name": "Fatima Ali", "rating": 5, "comment": "Clean, safe, and well-organized. Perfect for family shopping trips. The parking is always available too!", "location": "Alexandria" }
+    {
+      "name": "Sarah Ahmed",
+      "rating": 5,
+      "comment": "SkyCourt has everything I need in one place. The kids area is fantastic and the variety of stores is impressive!",
+      "location": "Cairo"
+    },
+    {
+      "name": "Mohamed Hassan",
+      "rating": 5,
+      "comment": "Great shopping experience with excellent food options. The 24-hour supermarket is incredibly convenient.",
+      "location": "Giza"
+    },
+    {
+      "name": "Fatima Ali",
+      "rating": 5,
+      "comment": "Clean, safe, and well-organized. Perfect for family shopping trips. The parking is always available too!",
+      "location": "Alexandria"
+    }
   ],
-
   "visit_us_today": "Visit Us Today",
   "find_us_in_the_heart": "Find us in the heart of the city - easily accessible by car or public transport",
   "address": "Address",
@@ -68,45 +153,99 @@
   "skycourt": "SkyCourt",
   "hero_headline": "SkyCourt Mall",
   "about": "About Us",
-  "about_title": "Our Vision",
-  "about_headline": "Beyond Retail: Crafting the North Coast's Premier Destination",
-  "about_journey_headline": "The Art of Selection",
-  "about_pillar1_title": "The Vision (2007)",
-  "about_pillar1_text": "Founded with a vision to create an architectural and experiential landmark on the North Coast.",
-  "about_pillar2_title": "The Curation",
-  "about_pillar2_text": "A gallery of the world's most coveted brands, selected with an unwavering standard of quality.",
-  "about_pillar3_title": "The Experience",
-  "about_pillar3_text": "Impeccable service, serene design, and a commitment to your complete satisfaction.",
-  "about_commitment_headline": "An Unwavering Commitment to You",
-  "about_commitment1_title": "Serenity & Security",
-  "about_commitment1_text": "A safe, family-friendly environment.",
-  "about_commitment2_title": "24/7 Convenience",
-  "about_commitment2_text": "Access to what you need, anytime.",
-  "about_commitment3_title": "Professional Service",
-  "about_commitment3_text": "A dedicated team trained to exceed expectations.",
-  "about_commitment4_title": "Unmatched Quality",
-  "about_commitment4_text": "A curated standard of excellence in every detail.",
-  "about_legacy_headline": "Investing in a Legacy",
-  "about_box1_title": "Strategic Planning",
-  "about_box1_text": "A foundation of market insight and long-term vision.",
-  "about_box2_title": "Precise Execution",
-  "about_box2_text": "A highly qualified team committed to quality standards.",
-  "about_box3_title": "Customer Satisfaction",
-  "about_box3_text": "The ultimate goal that drives every action.",
   "nav_brands": "Brands",
   "nav_services": "Services",
   "dining_headline": "Dining at SkyCourt",
   "dining_subheadline": "Explore a curated selection of cafes and restaurants.",
   "stories_title": "Stories",
   "eateries": {
-    "kfc": { "name": "KFC", "detail1": "World-famous crispy fried chicken.", "detail2": "Family buckets and combo meals.", "detail3": "Fresh, hot, and delicious.", "detail4": "Signature sides and beverages." },
-    "hardees": { "name": "Hardees", "detail1": "Charbroiled burgers with a signature taste.", "detail2": "Premium quality beef and fresh ingredients.", "detail3": "Breakfast served all day.", "detail4": "Hand-breaded chicken tenders." },
-    "balbaa-village": { "name": "Balbaa Village", "detail1": "Placeholder detail 1 for Balbaa Village.", "detail2": "Placeholder detail 2 for Balbaa Village.", "detail3": "Placeholder detail 3 for Balbaa Village.", "detail4": "Placeholder detail 4 for Balbaa Village." },
-    "blaban": { "name": "Blaban", "detail1": "Traditional Middle Eastern dishes.", "detail2": "Fresh mezze and grilled specialties.", "detail3": "A family-friendly dining environment.", "detail4": "Authentic flavors and recipes." },
-    "khatab": { "name": "Khatab", "detail1": "Placeholder detail 1 for Khatab.", "detail2": "Placeholder detail 2 for Khatab.", "detail3": "Placeholder detail 3 for Khatab.", "detail4": "Placeholder detail 4 for Khatab." },
-    "donia-al-gambary": { "name": "Donia Al Gambary", "detail1": "Placeholder detail 1 for Donia Al Gambary.", "detail2": "Placeholder detail 2 for Donia Al Gambary.", "detail3": "Placeholder detail 3 for Donia Al Gambary.", "detail4": "Placeholder detail 4 for Donia Al Gambary." },
-    "koshary-al-tahrir": { "name": "Koshary Al Tahrir", "detail1": "Placeholder detail 1 for Koshary Al Tahrir.", "detail2": "Placeholder detail 2 for Koshary Al Tahrir.", "detail3": "Placeholder detail 3 for Koshary Al Tahrir.", "detail4": "Placeholder detail 4 for Koshary Al Tahrir." },
-    "primos-pizza": { "name": "Primos Pizza", "detail1": "Placeholder detail 1 for Primos Pizza.", "detail2": "Placeholder detail 2 for Primos Pizza.", "detail3": "Placeholder detail 3 for Primos Pizza.", "detail4": "Placeholder detail 4 for Primos Pizza." },
-    "pizza-hut": { "name": "Pizza Hut", "detail1": "Classic pan pizzas with premium ingredients.", "detail2": "Wide variety of toppings and flavors.", "detail3": "Perfect for family dining.", "detail4": "Fresh dough made daily." }
-  }
+    "kfc": {
+      "name": "KFC",
+      "detail1": "World-famous crispy fried chicken.",
+      "detail2": "Family buckets and combo meals.",
+      "detail3": "Fresh, hot, and delicious.",
+      "detail4": "Signature sides and beverages."
+    },
+    "hardees": {
+      "name": "Hardees",
+      "detail1": "Charbroiled burgers with a signature taste.",
+      "detail2": "Premium quality beef and fresh ingredients.",
+      "detail3": "Breakfast served all day.",
+      "detail4": "Hand-breaded chicken tenders."
+    },
+    "balbaa-village": {
+      "name": "Balbaa Village",
+      "detail1": "Placeholder detail 1 for Balbaa Village.",
+      "detail2": "Placeholder detail 2 for Balbaa Village.",
+      "detail3": "Placeholder detail 3 for Balbaa Village.",
+      "detail4": "Placeholder detail 4 for Balbaa Village."
+    },
+    "blaban": {
+      "name": "Blaban",
+      "detail1": "Traditional Middle Eastern dishes.",
+      "detail2": "Fresh mezze and grilled specialties.",
+      "detail3": "A family-friendly dining environment.",
+      "detail4": "Authentic flavors and recipes."
+    },
+    "khatab": {
+      "name": "Khatab",
+      "detail1": "Placeholder detail 1 for Khatab.",
+      "detail2": "Placeholder detail 2 for Khatab.",
+      "detail3": "Placeholder detail 3 for Khatab.",
+      "detail4": "Placeholder detail 4 for Khatab."
+    },
+    "donia-al-gambary": {
+      "name": "Donia Al Gambary",
+      "detail1": "Placeholder detail 1 for Donia Al Gambary.",
+      "detail2": "Placeholder detail 2 for Donia Al Gambary.",
+      "detail3": "Placeholder detail 3 for Donia Al Gambary.",
+      "detail4": "Placeholder detail 4 for Donia Al Gambary."
+    },
+    "koshary-al-tahrir": {
+      "name": "Koshary Al Tahrir",
+      "detail1": "Placeholder detail 1 for Koshary Al Tahrir.",
+      "detail2": "Placeholder detail 2 for Koshary Al Tahrir.",
+      "detail3": "Placeholder detail 3 for Koshary Al Tahrir.",
+      "detail4": "Placeholder detail 4 for Koshary Al Tahrir."
+    },
+    "primos-pizza": {
+      "name": "Primos Pizza",
+      "detail1": "Placeholder detail 1 for Primos Pizza.",
+      "detail2": "Placeholder detail 2 for Primos Pizza.",
+      "detail3": "Placeholder detail 3 for Primos Pizza.",
+      "detail4": "Placeholder detail 4 for Primos Pizza."
+    },
+    "pizza-hut": {
+      "name": "Pizza Hut",
+      "detail1": "Classic pan pizzas with premium ingredients.",
+      "detail2": "Wide variety of toppings and flavors.",
+      "detail3": "Perfect for family dining.",
+      "detail4": "Fresh dough made daily."
+    }
+  },
+  "about_title": "Our Vision",
+  "about_headline": "The largest commercial destination on the North Coast, crafting an unparalleled experience.",
+  "about_vision_headline": "The Art of Selection",
+  "about_vision_pillar1_title": "The Vision (2007)",
+  "about_vision_pillar1_text": "Founded to create an architectural and experiential landmark on the North Coast.",
+  "about_vision_pillar2_title": "The Curation",
+  "about_vision_pillar2_text": "A gallery of the world's most coveted brands, selected with an unwavering standard of quality.",
+  "about_vision_pillar3_title": "The Promise",
+  "about_vision_pillar3_text": "Impeccable service, serene design, and a commitment to your complete satisfaction.",
+  "about_experience_headline": "An Unwavering Commitment to You",
+  "about_experience_commitment1_title": "Convenient & Secure Parking",
+  "about_experience_commitment1_text": "A capacity of over 1000 cars, managed by a professional team to ensure distinguished service for our visitors.",
+  "about_experience_commitment2_title": "Safe & Fun Kids' Area",
+  "about_experience_commitment2_text": "Managed by a professional and trained team, ensuring all games are completely safe for children.",
+  "about_experience_commitment3_title": "24/7 Professional Security",
+  "about_experience_commitment3_text": "Our trained security team ensures you can shop and stroll with absolute freedom and peace of mind.",
+  "about_experience_commitment4_title": "Expert Management",
+  "about_experience_commitment4_text": "A professional team that aims to achieve the highest levels of visitor satisfaction using modern methods.",
+  "about_legacy_headline": "Investing in a Legacy",
+  "about_legacy_box1_title": "Strategic Planning",
+  "about_legacy_box1_text": "A foundation of market insight and long-term vision.",
+  "about_legacy_box2_title": "Precise Execution",
+  "about_legacy_box2_text": "A highly qualified team committed to quality standards.",
+  "about_legacy_box3_title": "Customer Satisfaction",
+  "about_legacy_box3_text": "The ultimate goal that drives every action."
 }
